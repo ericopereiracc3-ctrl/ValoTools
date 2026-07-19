@@ -147,10 +147,20 @@ sensInput.addEventListener("input", updateEquivalentSensitivity);
 targetQuickButtons.forEach((button) => {
   button.addEventListener("click", () => {
     targetDpi.value = button.dataset.targetDpi;
+
+    targetQuickButtons.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
     updateEquivalentSensitivity();
   });
 });
-
+targetQuickButtons.forEach((button) => {
+  if (button.dataset.targetDpi === targetDpi.value) {
+    button.classList.add("active");
+  }
+});
 calcBtn.addEventListener("click", calculate);
   copyBtn.addEventListener("click", async () => {
   const dpi = parseFloat(dpiInput.value);
