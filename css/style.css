@@ -746,3 +746,48 @@ input[type="number"]::-webkit-inner-spin-button {
     right: 8px !important;
   }
 }
+
+.tool-nav {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 20;
+  display: flex;
+  gap: 6px;
+}
+
+.tool-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(174, 184, 194, 0.25);
+  background: rgba(8, 19, 28, 0.65);
+  color: #aeb8c2;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.tool-nav-link:hover,
+.tool-nav-link.active {
+  border-color: #4cdcd0;
+  background: rgba(76, 220, 208, 0.12);
+  color: #4cdcd0;
+}
+
+@media (max-width: 500px) {
+  .tool-nav {
+    top: 8px;
+    left: 8px;
+  }
+
+  .tool-nav-link {
+    padding: 0 8px;
+    font-size: 0.62rem;
+  }
+}

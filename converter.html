@@ -272,6 +272,25 @@
     EN
   </button>
 </div>
+
+<nav class="tool-nav">
+  <a
+    href="index.html"
+    class="tool-nav-link"
+    id="navEdpi"
+  >
+    eDPI Calculator
+  </a>
+
+  <a
+    href="converter.html"
+    class="tool-nav-link active"
+    id="navConverter"
+  >
+    Sensitivity Converter
+  </a>
+</nav>
+
       <img
   class="sens-converter-logo"
   src="assets/logo/valotools-wordmark.png"
@@ -494,6 +513,8 @@ const converterLanguageButtons =
 
 const converterTranslations = {
   es: {
+    navEdpi: "Calculadora de eDPI",
+    navConverter: "Conversor de sensibilidad",
     title: "Conversor de sensibilidad",
     description:
       "Convertí tu sensibilidad entre diferentes juegos manteniendo aproximadamente la misma distancia de giro.",
@@ -510,6 +531,8 @@ const converterTranslations = {
   },
 
   en: {
+    navEdpi: "eDPI Calculator",
+    navConverter: "Sensitivity Converter",
     title: "Sensitivity Converter",
     description:
       "Convert your sensitivity between different games while keeping approximately the same turning distance.",
@@ -539,6 +562,12 @@ function setConverterLanguage(language) {
 
   document.getElementById("converterDescription").textContent =
     text.description;
+    
+    document.getElementById("navEdpi").textContent =
+  text.navEdpi;
+
+document.getElementById("navConverter").textContent =
+  text.navConverter;
 
   document.getElementById("sourceGameLabel").textContent =
     text.sourceGame;
