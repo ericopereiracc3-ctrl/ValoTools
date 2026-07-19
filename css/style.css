@@ -325,3 +325,10 @@
     .result-value{ font-size:64px; }
     .panel{ padding:26px 20px 24px; }
   }
+.brand-wordmark {
+  display: block;
+  width: min(100%, 390px);
+  height: auto;
+  margin: 0 auto 10px;
+  object-fit: contain;
+}
