@@ -11,6 +11,8 @@ const scaleMedium = document.getElementById("scaleMedium");
 const scaleHigh = document.getElementById("scaleHigh");
 const copyBtn = document.getElementById("copyBtn");
 const copyText = document.getElementById("copyText");
+const targetDpi = document.getElementById("targetDpi");
+const convertedValue = document.getElementById("convertedValue");
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -105,6 +107,12 @@ const copyText = document.getElementById("copyText");
     }
 
     const edpi = dpi * sens;
+    const targetDpiValue = parseFloat(targetDpi.value);
+
+if (targetDpiValue > 0) {
+  const equivalentSens = edpi / targetDpiValue;
+  convertedValue.textContent = equivalentSens.toFixed(3);
+}
     const markerPosition = Math.min((edpi / 600) * 100, 100);
 scaleMarker.style.left = `${markerPosition}%`;
 const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
@@ -116,7 +124,18 @@ const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     void result.offsetWidth;
     result.classList.add('show');
   }
+targetDpi.addEventListener("input", () => {
+  const dpi = parseFloat(dpiInput.value);
+  const sens = parseFloat(sensInput.value);
+  const targetDpiValue = parseFloat(targetDpi.value);
 
+  if (dpi > 0 && sens > 0 && targetDpiValue > 0) {
+    const edpi = dpi * sens;
+    convertedValue.textContent = (edpi / targetDpiValue).toFixed(3);
+  } else {
+    convertedValue.textContent = "—";
+  }
+});
   calcBtn.addEventListener('click', calculate);
   copyBtn.addEventListener("click", async () => {
   const dpi = parseFloat(dpiInput.value);
