@@ -1,17 +1,27 @@
+<p align="center">
+  <img src="assets/logo/valotools-full.png" alt="ValoTools" width="500">
+</p>
+
 # ValoTools
 
-Tools for Valorant players.
+Herramientas rápidas y gratuitas para jugadores de Valorant.
 
-## Current tool
+## Herramienta disponible
 
-- eDPI Calculator
+- Calculadora de eDPI
 
-## Planned tools
+## Próximamente
 
-- Sensitivity Converter
-- cm/360 Calculator
-- Pro Settings
+- Conversor de sensibilidad
+- Calculadora de cm/360
+- Configuraciones de jugadores profesionales
 
-## Status
+## Tecnologías
 
-Early development version.
+- HTML
+- CSS
+- JavaScript
+
+## Estado
+
+Proyecto en desarrollo.
