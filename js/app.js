@@ -6,6 +6,9 @@ const dpiInput = document.getElementById('dpi');
   const badgeWrap = document.getElementById('badgeWrap');
   const resultNote = document.getElementById('resultNote');
   const scaleMarker = document.getElementById("scaleMarker");
+  const scaleLow = document.getElementById("scaleLow");
+const scaleMedium = document.getElementById("scaleMedium");
+const scaleHigh = document.getElementById("scaleHigh");
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -187,6 +190,24 @@ if (currentEdpi > 0) {
 
   resultNote.textContent = info.note;
 }
+const scaleTranslations = {
+  en: {
+    low: "Low",
+    medium: "Medium",
+    high: "High"
+  },
+  es: {
+    low: "Baja",
+    medium: "Media",
+    high: "Alta"
+  }
+};
+
+const scaleText = scaleTranslations[language] || scaleTranslations.en;
+
+scaleLow.textContent = scaleText.low;
+scaleMedium.textContent = scaleText.medium;
+scaleHigh.textContent = scaleText.high;
   localStorage.setItem("valotools-language", language);
 }
 
