@@ -303,12 +303,55 @@ input[type="number"]::-webkit-inner-spin-button {
   .badge.mid{ color:#4ee6d6; }
   .badge.high{ color:#ff4655; }
 
-  .result-note {
+.result-note {
   margin-top: 12px;
   font-size: 13px;
   color: #aeb8c2;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+.edpi-scale {
+  width: 100%;
+  margin: 18px 0 14px;
+}
+
+.scale-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #4da3ff 0%,
+    #4da3ff 35%,
+    #f5c451 35%,
+    #f5c451 68%,
+    #ff5f6d 68%,
+    #ff5f6d 100%
+  );
+}
+
+.scale-marker {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #111827;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #aeb8c2;
 }
   
 

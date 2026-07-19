@@ -5,6 +5,7 @@ const dpiInput = document.getElementById('dpi');
   const resultValue = document.getElementById('resultValue');
   const badgeWrap = document.getElementById('badgeWrap');
   const resultNote = document.getElementById('resultNote');
+  const scaleMarker = document.getElementById("scaleMarker");
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -99,6 +100,8 @@ const dpiInput = document.getElementById('dpi');
     }
 
     const edpi = dpi * sens;
+    const markerPosition = Math.min((edpi / 600) * 100, 100);
+scaleMarker.style.left = `${markerPosition}%`;
 const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     resultValue.textContent = edpi % 1 === 0 ? edpi.toFixed(0) : edpi.toFixed(1);
     badgeWrap.innerHTML = `<span class="badge ${info.tier}">${info.label}</span>`;
