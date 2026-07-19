@@ -124,7 +124,7 @@ const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     void result.offsetWidth;
     result.classList.add('show');
   }
-targetDpi.addEventListener("input", () => {
+  function updateEquivalentSensitivity() {
   const dpi = parseFloat(dpiInput.value);
   const sens = parseFloat(sensInput.value);
   const targetDpiValue = parseFloat(targetDpi.value);
@@ -135,7 +135,10 @@ targetDpi.addEventListener("input", () => {
   } else {
     convertedValue.textContent = "—";
   }
-});
+}
+targetDpi.addEventListener("input", updateEquivalentSensitivity);
+dpiInput.addEventListener("input", updateEquivalentSensitivity);
+sensInput.addEventListener("input", updateEquivalentSensitivity);
   calcBtn.addEventListener('click', calculate);
   copyBtn.addEventListener("click", async () => {
   const dpi = parseFloat(dpiInput.value);
@@ -264,6 +267,25 @@ scaleMedium.textContent = scaleText.medium;
 scaleHigh.textContent = scaleText.high;
 copyText.textContent =
   language === "es" ? "COPIAR RESULTADO" : "COPY RESULT";
+  const converterTranslations = {
+  en: {
+    target: "Convert to DPI",
+    equivalent: "Equivalent sensitivity"
+  },
+  es: {
+    target: "Convertir a DPI",
+    equivalent: "Sensibilidad equivalente"
+  }
+};
+
+const converterText =
+  converterTranslations[language] || converterTranslations.en;
+
+document.getElementById("targetDpiLabel").textContent =
+  converterText.target;
+
+document.getElementById("convertedLabel").textContent =
+  converterText.equivalent;
   localStorage.setItem("valotools-language", language);
 }
 
