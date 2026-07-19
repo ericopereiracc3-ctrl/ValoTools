@@ -171,7 +171,19 @@ function setLanguage(language) {
   languageButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === language);
   });
+const currentEdpi = Number(resultValue.textContent);
 
+if (currentEdpi > 0) {
+  const info = classify(currentEdpi, language);
+
+  badgeWrap.innerHTML = `
+    <div class="badge ${info.tier}">
+      ${info.label}
+    </div>
+  `;
+
+  resultNote.textContent = info.note;
+}
   localStorage.setItem("valotools-language", language);
 }
 
