@@ -575,3 +575,70 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 10px;
   }
 }
+.converter-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.converter-form label {
+  color: #aeb8c2;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.converter-form input,
+.converter-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(174, 184, 194, 0.2);
+  background: rgba(8, 19, 28, 0.75);
+  color: #ffffff;
+  font: inherit;
+  outline: none;
+}
+
+.converter-form input:focus,
+.converter-form select:focus {
+  border-color: #4cdcd0;
+  box-shadow: 0 0 0 1px #4cdcd0;
+}
+
+#convertGameBtn {
+  margin-top: 6px;
+  padding: 13px 16px;
+  border: 1px solid #4cdcd0;
+  background: #4cdcd0;
+  color: #08131c;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#convertGameBtn:hover {
+  filter: brightness(1.08);
+}
+
+.game-converter-result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid rgba(76, 220, 208, 0.25);
+  background: rgba(76, 220, 208, 0.05);
+}
+
+.game-converter-result span {
+  color: #aeb8c2;
+  font-size: 0.72rem;
+}
+
+.game-converter-result strong {
+  margin-top: 4px;
+  color: #4cdcd0;
+  font-size: 1.8rem;
+}
