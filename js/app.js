@@ -13,6 +13,9 @@ const copyBtn = document.getElementById("copyBtn");
 const copyText = document.getElementById("copyText");
 const targetDpi = document.getElementById("targetDpi");
 const convertedValue = document.getElementById("convertedValue");
+const targetQuickButtons = document.querySelectorAll(
+  ".target-quick-buttons button"
+);
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -124,7 +127,7 @@ const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     void result.offsetWidth;
     result.classList.add('show');
   }
-  function updateEquivalentSensitivity() {
+function updateEquivalentSensitivity() {
   const dpi = parseFloat(dpiInput.value);
   const sens = parseFloat(sensInput.value);
   const targetDpiValue = parseFloat(targetDpi.value);
@@ -136,10 +139,19 @@ const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     convertedValue.textContent = "—";
   }
 }
+
 targetDpi.addEventListener("input", updateEquivalentSensitivity);
 dpiInput.addEventListener("input", updateEquivalentSensitivity);
 sensInput.addEventListener("input", updateEquivalentSensitivity);
-  calcBtn.addEventListener('click', calculate);
+
+targetQuickButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    targetDpi.value = button.dataset.targetDpi;
+    updateEquivalentSensitivity();
+  });
+});
+
+calcBtn.addEventListener("click", calculate);
   copyBtn.addEventListener("click", async () => {
   const dpi = parseFloat(dpiInput.value);
   const sens = parseFloat(sensInput.value);
