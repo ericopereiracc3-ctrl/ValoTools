@@ -29,12 +29,36 @@
       margin: 40px auto;
     }
 
-    .sens-converter-card {
-      padding: 28px;
-      border: 1px solid rgba(174, 184, 194, 0.18);
-      background: rgba(8, 19, 28, 0.95);
-    }
+.sens-converter-card {
+  padding: 28px;
+  border: 1px solid rgba(174, 184, 194, 0.18);
+  background: rgba(8, 19, 28, 0.95);
+}
 
+.converter-language-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.converter-lang-btn {
+  padding: 6px 9px;
+  border: 1px solid rgba(174, 184, 194, 0.25);
+  background: rgba(8, 19, 28, 0.65);
+  color: #aeb8c2;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.converter-lang-btn:hover,
+.converter-lang-btn.active {
+  border-color: #4cdcd0;
+  background: rgba(76, 220, 208, 0.12);
+  color: #4cdcd0;
+}
     .sens-converter-logo {
       display: block;
       width: min(340px, 75%);
@@ -258,109 +282,117 @@
 <body>
   <main class="sens-converter-page">
     <section class="sens-converter-card">
+      <div class="converter-language-switch">
+  <button type="button" class="converter-lang-btn active" data-lang="es">
+    ES
+  </button>
+
+  <button type="button" class="converter-lang-btn" data-lang="en">
+    EN
+  </button>
+</div>
      <img
   class="sens-converter-logo"
   src="assets/logo/valotools-wordmark.png"
   alt="ValoTools"
       />
 
-      <h1 class="sens-converter-title">
+      <h1 class="sens-converter-title" id="converterTitle">
         Conversor de sensibilidad
       </h1>
 
-      <p class="sens-converter-description">
+      <p class="sens-converter-description" id="converterDescription">
         Convertí tu sensibilidad entre diferentes juegos manteniendo
         aproximadamente la misma distancia de giro.
       </p>
 
       <div class="sens-converter-form">
-        <div class="sens-converter-grid">
-          <div class="sens-field">
-            <label for="sourceGame">
-              Juego de origen
-            </label>
+<div class="sens-converter-grid">
+  <div class="sens-field">
+    <label for="sourceGame" id="sourceGameLabel">
+      Juego de origen
+    </label>
 
-            <select id="sourceGame">
-              <option value="valorant">Valorant</option>
-              <option value="cs2">Counter-Strike 2</option>
-              <option value="apex">Apex Legends</option>
-              <option value="overwatch2">Overwatch 2</option>
-              <option value="warzone">Call of Duty: Warzone</option>
-            </select>
-          </div>
+    <select id="sourceGame">
+      <option value="valorant">Valorant</option>
+      <option value="cs2">Counter-Strike 2</option>
+      <option value="apex">Apex Legends</option>
+      <option value="overwatch2">Overwatch 2</option>
+      <option value="warzone">Call of Duty: Warzone</option>
+    </select>
+  </div>
 
-          <div class="sens-field">
-            <label for="targetGame">
-              Juego de destino
-            </label>
+  <div class="sens-field">
+    <label for="targetGame" id="targetGameLabel">
+      Juego de destino
+    </label>
 
-            <select id="targetGame">
-              <option value="cs2">Counter-Strike 2</option>
-              <option value="valorant">Valorant</option>
-              <option value="apex">Apex Legends</option>
-              <option value="overwatch2">Overwatch 2</option>
-              <option value="warzone">Call of Duty: Warzone</option>
-            </select>
-          </div>
-        </div>
+    <select id="targetGame">
+      <option value="cs2">Counter-Strike 2</option>
+      <option value="valorant">Valorant</option>
+      <option value="apex">Apex Legends</option>
+      <option value="overwatch2">Overwatch 2</option>
+      <option value="warzone">Call of Duty: Warzone</option>
+    </select>
+  </div>
+</div>
 
-        <button
-          type="button"
-          class="swap-games-btn"
-          id="swapGamesBtn"
-        >
-          ⇄ Intercambiar juegos
-        </button>
+<button
+  type="button"
+  class="swap-games-btn"
+  id="swapGamesBtn"
+>
+  <span id="swapGamesText">⇄ Intercambiar juegos</span>
+</button>
 
-        <div class="sens-field">
-          <label for="mouseDpi">
-            DPI del mouse
-          </label>
+<div class="sens-field">
+  <label for="mouseDpi" id="mouseDpiLabel">
+    DPI del mouse
+  </label>
 
-          <input
-            type="number"
-            id="mouseDpi"
-            value="800"
-            min="1"
-            step="1"
-            inputmode="numeric"
-          />
-        </div>
+  <input
+    type="number"
+    id="mouseDpi"
+    value="800"
+    min="1"
+    step="1"
+    inputmode="numeric"
+  />
+</div>
 
-        <div class="sens-field">
-          <label for="sourceSensitivity" id="sourceSensitivityLabel">
-            Sensibilidad de Valorant
-          </label>
+<div class="sens-field">
+  <label for="sourceSensitivity" id="sourceSensitivityLabel">
+    Sensibilidad de Valorant
+  </label>
 
-          <input
-            type="number"
-            id="sourceSensitivity"
-            value="0.35"
-            min="0.0001"
-            step="0.001"
-            inputmode="decimal"
-          />
-        </div>
+  <input
+    type="number"
+    id="sourceSensitivity"
+    value="0.35"
+    min="0.0001"
+    step="0.001"
+    inputmode="decimal"
+  />
+</div>
 
-        <p class="sens-error" id="sensError" aria-live="polite">
-          Revisá los valores ingresados.
-        </p>
+<p class="sens-error" id="sensError" aria-live="polite">
+  Revisá los valores ingresados.
+</p>
 
-        <button
-          type="button"
-          class="convert-sens-btn"
-          id="convertSensBtn"
-        >
-          Convertir sensibilidad
-        </button>
-      </div>
+<button
+  type="button"
+  class="convert-sens-btn"
+  id="convertSensBtn"
+>
+  <span id="convertSensText">Convertir sensibilidad</span>
+</button>
 
       <div
         class="sens-result"
         id="sensResult"
         aria-live="polite"
       >
-        <span class="sens-result-label">
+        <span class="sens-result-label" id="resultLabel">
           Sensibilidad equivalente
         </span>
 
@@ -390,17 +422,21 @@
         </div>
       </div>
 
-      <p class="sens-converter-note">
+      <p class="sens-converter-note" id="converterNote">
         Se supone que utilizarás el mismo DPI en ambos juegos.
         La conversión iguala aproximadamente los centímetros necesarios
         para girar 360° con la mira normal. No incluye ADS, scopes,
         multiplicadores de zoom ni ajustes especiales por héroe.
       </p>
 
-      <a class="sens-converter-back" href="index.html">
-        ← Volver a la calculadora de eDPI
-      </a>
-    </section>
+<a
+  class="sens-converter-back"
+  href="index.html"
+  id="backLink"
+>
+  ← Volver a la calculadora de eDPI
+</a>   
+ </section>
   </main>
 
   <script>
@@ -472,7 +508,93 @@
 
     const resultDpi =
       document.getElementById("resultDpi");
+const converterLanguageButtons =
+  document.querySelectorAll(".converter-lang-btn");
 
+const converterTranslations = {
+  es: {
+    title: "Conversor de sensibilidad",
+    description:
+      "Convertí tu sensibilidad entre diferentes juegos manteniendo aproximadamente la misma distancia de giro.",
+    sourceGame: "Juego de origen",
+    targetGame: "Juego de destino",
+    mouseDpi: "DPI del mouse",
+    swap: "⇄ Intercambiar juegos",
+    convert: "Convertir sensibilidad",
+    result: "Sensibilidad equivalente",
+    back: "← Volver a la calculadora de eDPI",
+    note:
+      "Se supone que utilizarás el mismo DPI en ambos juegos. La conversión iguala aproximadamente los centímetros necesarios para girar 360° con la mira normal. No incluye ADS, scopes, multiplicadores de zoom ni ajustes especiales por héroe.",
+    sensitivity: "Sensibilidad de"
+  },
+
+  en: {
+    title: "Sensitivity Converter",
+    description:
+      "Convert your sensitivity between different games while keeping approximately the same turning distance.",
+    sourceGame: "Source game",
+    targetGame: "Target game",
+    mouseDpi: "Mouse DPI",
+    swap: "⇄ Swap games",
+    convert: "Convert sensitivity",
+    result: "Equivalent sensitivity",
+    back: "← Back to the eDPI calculator",
+    note:
+      "This conversion assumes the same DPI in both games and approximately matches the distance required for a normal 360° turn. It does not include ADS, scopes, zoom multipliers or hero-specific settings.",
+    sensitivity: "Sensitivity in"
+  }
+};
+let currentConverterLanguage = "es";
+
+function setConverterLanguage(language) {
+  const text =
+    converterTranslations[language] || converterTranslations.es;
+
+  currentConverterLanguage = language;
+  document.documentElement.lang = language;
+
+  document.getElementById("converterTitle").textContent =
+    text.title;
+
+  document.getElementById("converterDescription").textContent =
+    text.description;
+
+  document.getElementById("sourceGameLabel").textContent =
+    text.sourceGame;
+
+  document.getElementById("targetGameLabel").textContent =
+    text.targetGame;
+
+  document.getElementById("mouseDpiLabel").textContent =
+    text.mouseDpi;
+
+  document.getElementById("swapGamesText").textContent =
+    text.swap;
+
+  document.getElementById("convertSensText").textContent =
+    text.convert;
+
+  document.getElementById("resultLabel").textContent =
+    text.result;
+
+  document.getElementById("converterNote").textContent =
+    text.note;
+
+  document.getElementById("backLink").textContent =
+    text.back;
+
+  const selectedSource = games[sourceGame.value];
+
+  sourceSensitivityLabel.textContent =
+    `${text.sensitivity} ${selectedSource.name}`;
+    converterLanguageButtons.forEach((button) => {
+  if (button.dataset.lang === language) {
+    button.classList.add("active");
+  } else {
+    button.classList.remove("active");
+  }
+});
+}
     function formatSensitivity(value) {
       if (value >= 10) {
         return Number(value.toFixed(2)).toString();
@@ -480,130 +602,132 @@
 
       return Number(value.toFixed(4)).toString();
     }
+function updateInterface() {
+  const selectedSource = games[sourceGame.value];
 
-    function updateInterface() {
-      const selectedSource =
-        games[sourceGame.value];
+  const text =
+    converterTranslations[currentConverterLanguage] ||
+    converterTranslations.es;
 
-      sourceSensitivityLabel.textContent =
-        `Sensibilidad de ${selectedSource.name}`;
+  sourceSensitivityLabel.textContent =
+    `${text.sensitivity} ${selectedSource.name}`;
 
-      sensResult.classList.remove("show");
-      sensError.classList.remove("show");
-    }
+  sensResult.classList.remove("show");
+  sensError.classList.remove("show");
+}
+function convertSensitivity() {
+  const dpi = Number.parseFloat(mouseDpi.value);
+  const sensitivity =
+    Number.parseFloat(sourceSensitivity.value);
 
-    function convertSensitivity() {
-      const dpi =
-        Number.parseFloat(mouseDpi.value);
+  const selectedSource = games[sourceGame.value];
+  const selectedTarget = games[targetGame.value];
 
-      const sensitivity =
-        Number.parseFloat(sourceSensitivity.value);
+  if (sourceGame.value === targetGame.value) {
+    sensError.textContent =
+      currentConverterLanguage === "es"
+        ? "Seleccioná dos juegos diferentes."
+        : "Select two different games.";
 
-      const selectedSource =
-        games[sourceGame.value];
+    sensError.classList.add("show");
+    sensResult.classList.remove("show");
+    return;
+  }
 
-      const selectedTarget =
-        games[targetGame.value];
+  if (
+    !Number.isFinite(dpi) ||
+    !Number.isFinite(sensitivity) ||
+    dpi <= 0 ||
+    sensitivity <= 0
+  ) {
+    sensError.textContent =
+      currentConverterLanguage === "es"
+        ? "Ingresá un DPI y una sensibilidad válidos."
+        : "Enter a valid DPI and sensitivity.";
 
-      if (sourceGame.value === targetGame.value) {
-        sensError.textContent =
-          "Seleccioná dos juegos diferentes.";
+    sensError.classList.add("show");
+    sensResult.classList.remove("show");
+    return;
+  }
 
-        sensError.classList.add("show");
-        sensResult.classList.remove("show");
-        return;
-      }
+  const convertedSensitivity =
+    sensitivity *
+    (selectedSource.yaw / selectedTarget.yaw);
 
-      if (
-        !Number.isFinite(dpi) ||
-        !Number.isFinite(sensitivity) ||
-        dpi <= 0 ||
-        sensitivity <= 0
-      ) {
-        sensError.textContent =
-          "Ingresá un DPI y una sensibilidad válidos.";
+  const calculatedEdpi = dpi * sensitivity;
 
-        sensError.classList.add("show");
-        sensResult.classList.remove("show");
-        return;
-      }
-
-      const convertedSensitivity =
-        sensitivity *
-        (selectedSource.yaw / selectedTarget.yaw);
-
-      const calculatedEdpi =
-        dpi * sensitivity;
-
-      const calculatedCm360 =
-        914.4 /
-        (
-          dpi *
-          sensitivity *
-          selectedSource.yaw
-        );
-
-      resultGame.textContent =
-        selectedTarget.name;
-
-      resultSensitivity.textContent =
-        formatSensitivity(convertedSensitivity);
-
-      sourceEdpi.textContent =
-        Number(calculatedEdpi.toFixed(1));
-
-      sourceCm360.textContent =
-        `${calculatedCm360.toFixed(1)} cm`;
-
-      resultDpi.textContent =
-        `${Math.round(dpi)} DPI`;
-
-      sensError.classList.remove("show");
-      sensResult.classList.add("show");
-    }
-
-    function swapGames() {
-      const previousSource =
-        sourceGame.value;
-
-      sourceGame.value =
-        targetGame.value;
-
-      targetGame.value =
-        previousSource;
-
-      updateInterface();
-    }
-
-    sourceGame.addEventListener(
-      "change",
-      updateInterface
+  const calculatedCm360 =
+    914.4 /
+    (
+      dpi *
+      sensitivity *
+      selectedSource.yaw
     );
 
-    targetGame.addEventListener("change", () => {
-      sensResult.classList.remove("show");
-      sensError.classList.remove("show");
-    });
+  resultGame.textContent = selectedTarget.name;
 
-    swapGamesBtn.addEventListener(
-      "click",
-      swapGames
-    );
+  resultSensitivity.textContent =
+    formatSensitivity(convertedSensitivity);
 
-    convertSensBtn.addEventListener(
-      "click",
-      convertSensitivity
-    );
+  sourceEdpi.textContent =
+    Number(calculatedEdpi.toFixed(1));
 
-    [mouseDpi, sourceSensitivity].forEach((input) => {
-      input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          convertSensitivity();
-        }
-      });
-    });
+  sourceCm360.textContent =
+    `${calculatedCm360.toFixed(1)} cm`;
 
+  resultDpi.textContent =
+    `${Math.round(dpi)} DPI`;
+
+  sensError.classList.remove("show");
+  sensResult.classList.add("show");
+}
+
+function swapGames() {
+  const previousSource = sourceGame.value;
+
+  sourceGame.value = targetGame.value;
+  targetGame.value = previousSource;
+
+  updateInterface();
+}
+
+sourceGame.addEventListener(
+  "change",
+  updateInterface
+);
+
+targetGame.addEventListener("change", () => {
+  sensResult.classList.remove("show");
+  sensError.classList.remove("show");
+});
+
+swapGamesBtn.addEventListener(
+  "click",
+  swapGames
+);
+
+convertSensBtn.addEventListener(
+  "click",
+  convertSensitivity
+);
+
+[mouseDpi, sourceSensitivity].forEach((input) => {
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      convertSensitivity();
+    }
+  });
+});
+
+converterLanguageButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setConverterLanguage(button.dataset.lang);
     updateInterface();
-  </script>
+  });
+});
+
+updateInterface();
+setConverterLanguage("es");
+</script>
 </body>
 </html>

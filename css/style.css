@@ -543,30 +543,41 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-align: center;
-}.language-switcher {
+}
+
+.language-switcher {
   position: fixed;
   top: 18px;
-  right: 22px;
-  background: rgba(10, 15, 20, 0.75);
-  padding: 5px 7px;
-  border: 1px solid var(--line);
-  backdrop-filter: blur(4px);
-  z-index: 5;
+  right: 18px;
+  z-index: 20;
   display: flex;
-  align-items: center;
   gap: 6px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--text-dim);
-}@media (max-width: 500px) {
+}
+
+.lang-btn {
+  padding: 6px 9px;
+  border: 1px solid rgba(174, 184, 194, 0.25);
+  background: rgba(8, 19, 28, 0.65);
+  color: #aeb8c2;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+  border-color: #4cdcd0;
+  background: rgba(76, 220, 208, 0.12);
+  color: #4cdcd0;
+}
+
+@media (max-width: 500px) {
   .language-switcher {
     top: 8px;
     right: 8px;
-    padding: 4px 6px;
-    font-size: 10px;
   }
 }
-
 @media (max-width: 500px) {
   .language-switcher {
     top: 8px;

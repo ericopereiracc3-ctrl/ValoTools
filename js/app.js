@@ -16,6 +16,8 @@ const convertedValue = document.getElementById("convertedValue");
 const targetQuickButtons = document.querySelectorAll(
   ".target-quick-buttons button"
 );
+const languageButtons =
+  document.querySelectorAll(".lang-btn");
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -236,7 +238,7 @@ const translations = {
     disclaimer:
       "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games."
   }
-};const languageButtons = document.querySelectorAll(".lang-btn");
+};
 
 function setLanguage(language) {
   const text = translations[language];
@@ -312,6 +314,12 @@ document.getElementById("targetDpiLabel").textContent =
 
 document.getElementById("convertedLabel").textContent =
   converterText.equivalent;
+  languageButtons.forEach((button) => {
+  button.classList.toggle(
+    "active",
+    button.dataset.lang === language
+  );
+});
   localStorage.setItem("valotools-language", language);
 }
 
