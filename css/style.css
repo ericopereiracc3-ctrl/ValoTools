@@ -198,13 +198,15 @@
     font-weight:600;
     letter-spacing:0.02em;
     padding:10px 16px;
+    appearance: textfield;
     -moz-appearance:textfield;
   }
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button{
-    -webkit-appearance:none;
-    margin:0;
-  }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
   input::placeholder{ color:var(--text-faint); }
 
   .quick-row{
@@ -327,8 +329,17 @@
   }
 .brand-wordmark {
   display: block;
-  width: min(100%, 390px);
+  width: 100%;
+  max-width: 390px;
   height: auto;
-  margin: 0 auto 10px;
+  margin: 0 auto 14px;
   object-fit: contain;
+}
+
+@media (max-width: 500px) {
+  .brand-wordmark {
+    width: 82%;
+    max-width: 290px;
+    margin-bottom: 12px;
+  }
 }
