@@ -14,15 +14,70 @@ const dpiInput = document.getElementById('dpi');
     });
   });
 
-  function classify(edpi){
-    if (edpi < 220) {
-      return { tier:'low', label:'SENS BAJA — CONTROL', note:'Barridos amplios de mouse. Mayor precisión para flicks largos, ideal para jugadores de mira estática.' };
-    } else if (edpi <= 320) {
-      return { tier:'mid', label:'SENS MEDIA — EQUILIBRIO', note:'El punto medio más usado en el nivel competitivo: buen balance entre control y reacción rápida.' };
-    } else {
-      return { tier:'high', label:'SENS ALTA — REACCIÓN', note:'Giros rápidos con poco movimiento de mano. Exige más control fino para no pasarte del blanco.' };
+ function classify(edpi, language = "en") {
+  const resultTexts = {
+    en: {
+      low: {
+        label: "LOW SENS — CONTROL",
+        note:
+          "Wide mouse movements with greater precision for long-range flicks. Ideal for more static players."
+      },
+      mid: {
+        label: "MEDIUM SENS — BALANCE",
+        note:
+          "A balanced setup between precision and fast movement. Common among competitive players."
+      },
+      high: {
+        label: "HIGH SENS — REACTION",
+        note:
+          "Fast turns with less hand movement. Requires stronger fine control to avoid overshooting."
+      }
+    },
+
+    es: {
+      low: {
+        label: "SENS BAJA — CONTROL",
+        note:
+          "Movimientos amplios del mouse con mayor precisión para flicks largos. Ideal para jugadores de mira estática."
+      },
+      mid: {
+        label: "SENS MEDIA — EQUILIBRIO",
+        note:
+          "Un equilibrio entre precisión y movimientos rápidos. Muy común entre jugadores competitivos."
+      },
+      high: {
+        label: "SENS ALTA — REACCIÓN",
+        note:
+          "Giros rápidos con poco movimiento de mano. Exige mayor control fino para no pasarte del blanco."
+      }
     }
+  };
+
+  const text = resultTexts[language] || resultTexts.en;
+
+  if (edpi < 220) {
+    return {
+      tier: "low",
+      label: text.low.label,
+      note: text.low.note
+    };
   }
+
+  if (edpi <= 400) {
+    return {
+      tier: "mid",
+      label: text.mid.label,
+      note: text.mid.note
+    };
+  }
+
+  return {
+    tier: "high",
+    label: text.high.label,
+    note: text.high.note
+  };
+}
+  
 
   function calculate(){
     const dpi = parseFloat(dpiInput.value);
@@ -44,8 +99,7 @@ const dpiInput = document.getElementById('dpi');
     }
 
     const edpi = dpi * sens;
-    const info = classify(edpi);
-
+const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
     resultValue.textContent = edpi % 1 === 0 ? edpi.toFixed(0) : edpi.toFixed(1);
     badgeWrap.innerHTML = `<span class="badge ${info.tier}">${info.label}</span>`;
     resultNote.textContent = info.note;
