@@ -35,30 +35,6 @@
   background: rgba(8, 19, 28, 0.95);
 }
 
-.converter-language-switch {
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.converter-lang-btn {
-  padding: 6px 9px;
-  border: 1px solid rgba(174, 184, 194, 0.25);
-  background: rgba(8, 19, 28, 0.65);
-  color: #aeb8c2;
-  font: inherit;
-  font-size: 0.7rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.converter-lang-btn:hover,
-.converter-lang-btn.active {
-  border-color: #4cdcd0;
-  background: rgba(76, 220, 208, 0.12);
-  color: #4cdcd0;
-}
     .sens-converter-logo {
       display: block;
       width: min(340px, 75%);
@@ -275,6 +251,11 @@
       .sens-result-details {
         grid-template-columns: 1fr;
       }
+
+      .converter-language-switch {
+  top: 8px;
+  right: 8px;
+}
     }
   </style>
 </head>
@@ -282,16 +263,16 @@
 <body>
   <main class="sens-converter-page">
     <section class="sens-converter-card">
-      <div class="converter-language-switch">
-  <button type="button" class="converter-lang-btn active" data-lang="es">
+<div class="language-switcher">
+  <button type="button" class="lang-btn" data-lang="es">
     ES
   </button>
 
-  <button type="button" class="converter-lang-btn" data-lang="en">
+  <button type="button" class="lang-btn" data-lang="en">
     EN
   </button>
 </div>
-     <img
+      <img
   class="sens-converter-logo"
   src="assets/logo/valotools-wordmark.png"
   alt="ValoTools"
@@ -509,7 +490,7 @@
     const resultDpi =
       document.getElementById("resultDpi");
 const converterLanguageButtons =
-  document.querySelectorAll(".converter-lang-btn");
+  document.querySelectorAll(".lang-btn");
 
 const converterTranslations = {
   es: {
@@ -587,13 +568,15 @@ function setConverterLanguage(language) {
 
   sourceSensitivityLabel.textContent =
     `${text.sensitivity} ${selectedSource.name}`;
-    converterLanguageButtons.forEach((button) => {
+converterLanguageButtons.forEach((button) => {
   if (button.dataset.lang === language) {
     button.classList.add("active");
   } else {
     button.classList.remove("active");
   }
 });
+
+localStorage.setItem("valotools-language", language);
 }
     function formatSensitivity(value) {
       if (value >= 10) {
@@ -726,8 +709,11 @@ converterLanguageButtons.forEach((button) => {
   });
 });
 
+const savedConverterLanguage =
+  localStorage.getItem("valotools-language") || "es";
+
+setConverterLanguage(savedConverterLanguage);
 updateInterface();
-setConverterLanguage("es");
 </script>
 </body>
 </html>
