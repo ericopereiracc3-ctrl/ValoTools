@@ -140,27 +140,31 @@ function updateEquivalentSensitivity() {
   }
 }
 
-targetDpi.addEventListener("input", updateEquivalentSensitivity);
+function updateActiveTargetButton() {
+  targetQuickButtons.forEach((button) => {
+    const isActive = button.dataset.targetDpi === targetDpi.value;
+    button.classList.toggle("active", isActive);
+  });
+}
+
+targetDpi.addEventListener("input", () => {
+  updateEquivalentSensitivity();
+  updateActiveTargetButton();
+});
+
 dpiInput.addEventListener("input", updateEquivalentSensitivity);
 sensInput.addEventListener("input", updateEquivalentSensitivity);
 
 targetQuickButtons.forEach((button) => {
   button.addEventListener("click", () => {
     targetDpi.value = button.dataset.targetDpi;
-
-    targetQuickButtons.forEach((item) => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
     updateEquivalentSensitivity();
+    updateActiveTargetButton();
   });
 });
-targetQuickButtons.forEach((button) => {
-  if (button.dataset.targetDpi === targetDpi.value) {
-    button.classList.add("active");
-  }
-});
+
+updateActiveTargetButton();
+
 calcBtn.addEventListener("click", calculate);
   copyBtn.addEventListener("click", async () => {
   const dpi = parseFloat(dpiInput.value);
