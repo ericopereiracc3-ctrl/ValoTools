@@ -9,6 +9,8 @@ const dpiInput = document.getElementById('dpi');
   const scaleLow = document.getElementById("scaleLow");
 const scaleMedium = document.getElementById("scaleMedium");
 const scaleHigh = document.getElementById("scaleHigh");
+const copyBtn = document.getElementById("copyBtn");
+const copyText = document.getElementById("copyText");
 
   document.querySelectorAll('.quick-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -116,6 +118,39 @@ const info = classify(edpi, localStorage.getItem("valotools-language") || "en")
   }
 
   calcBtn.addEventListener('click', calculate);
+  copyBtn.addEventListener("click", async () => {
+  const dpi = parseFloat(dpiInput.value);
+  const sens = parseFloat(sensInput.value);
+  const edpi = dpi * sens;
+
+  if (!dpi || !sens || edpi <= 0) {
+    return;
+  }
+
+  const language =
+    localStorage.getItem("valotools-language") || "en";
+
+  const info = classify(edpi, language);
+
+  const copiedResult =
+    language === "es"
+      ? `Valorant eDPI: ${edpi}\n${dpi} DPI × ${sens} de sensibilidad\n${info.label}`
+      : `Valorant eDPI: ${edpi}\n${dpi} DPI × ${sens} sensitivity\n${info.label}`;
+
+  try {
+    await navigator.clipboard.writeText(copiedResult);
+
+    copyText.textContent =
+      language === "es" ? "COPIADO" : "COPIED";
+
+    setTimeout(() => {
+      copyText.textContent =
+        language === "es" ? "COPIAR RESULTADO" : "COPY RESULT";
+    }, 1500);
+  } catch (error) {
+    console.error("Unable to copy result:", error);
+  }
+});
   [dpiInput, sensInput].forEach(el=>{
     el.addEventListener('keydown', e=>{
       if (e.key === 'Enter') calculate();
@@ -208,6 +243,8 @@ const scaleText = scaleTranslations[language] || scaleTranslations.en;
 scaleLow.textContent = scaleText.low;
 scaleMedium.textContent = scaleText.medium;
 scaleHigh.textContent = scaleText.high;
+copyText.textContent =
+  language === "es" ? "COPIAR RESULTADO" : "COPY RESULT";
   localStorage.setItem("valotools-language", language);
 }
 
