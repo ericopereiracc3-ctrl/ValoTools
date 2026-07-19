@@ -61,3 +61,71 @@ const dpiInput = document.getElementById('dpi');
       if (e.key === 'Enter') calculate();
     });
   });
+const translations = {
+  en: {
+    subtitle: "Calculate your effective sensitivity in Valorant",
+    dpiLabel: "Mouse DPI",
+    sensitivityLabel: "In-game sensitivity",
+    calculateButton: "Calculate eDPI",
+    resultLabel: "Your eDPI is",
+    infoTitle: "What is eDPI?",
+    infoText1:
+      "eDPI is a way to compare sensitivity settings between players who use different DPI values.",
+    infoText2:
+      "It is calculated by multiplying your mouse DPI by your in-game Valorant sensitivity.",
+    formula: "eDPI = DPI × sensitivity",
+    disclaimer:
+      "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games."
+  },
+
+  es: {
+    subtitle: "Calcula tu sensibilidad efectiva en Valorant",
+    dpiLabel: "DPI del mouse",
+    sensitivityLabel: "Sensibilidad en juego",
+    calculateButton: "Calcular eDPI",
+    resultLabel: "Tu eDPI es",
+    infoTitle: "¿Qué es el eDPI?",
+    infoText1:
+      "El eDPI es una forma de comparar sensibilidades entre jugadores aunque usen diferentes valores de DPI.",
+    infoText2:
+      "Se calcula multiplicando el DPI del mouse por la sensibilidad configurada dentro de Valorant.",
+    formula: "eDPI = DPI × sensibilidad",
+    disclaimer:
+      "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games."
+  }
+};const languageButtons = document.querySelectorAll(".lang-btn");
+
+function setLanguage(language) {
+  const text = translations[language];
+
+  document.documentElement.lang = language;
+
+  document.getElementById("toolTitle").textContent = "eDPI Calculator";
+  document.getElementById("subtitleText").textContent = text.subtitle;
+  document.getElementById("dpiLabel").textContent = text.dpiLabel;
+  document.getElementById("sensitivityLabel").textContent =
+    text.sensitivityLabel;
+  document.getElementById("calculateText").textContent =
+    text.calculateButton.toUpperCase();
+  document.getElementById("resultLabel").textContent = text.resultLabel;
+  document.getElementById("infoTitle").textContent = text.infoTitle;
+  document.getElementById("infoText1").textContent = text.infoText1;
+  document.getElementById("infoText2").textContent = text.infoText2;
+  document.getElementById("formulaText").textContent = text.formula;
+  document.getElementById("disclaimerText").textContent = text.disclaimer;
+
+  languageButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.lang === language);
+  });
+
+  localStorage.setItem("valotools-language", language);
+}
+
+languageButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+  });
+});
+
+const savedLanguage = localStorage.getItem("valotools-language") || "en";
+setLanguage(savedLanguage);

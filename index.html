@@ -26,6 +26,11 @@
 <body>
 
   <div class="frame">
+    <div class="language-switcher">
+  <button type="button" class="lang-btn active" data-lang="en">EN</button>
+  <span>/</span>
+  <button type="button" class="lang-btn" data-lang="es">ES</button>
+</div>
     <div class="bracket tl"></div>
     <div class="bracket tr"></div>
     <div class="bracket bl"></div>
@@ -33,12 +38,17 @@
 
     <div class="eyebrow"><span class="dot"></span> AGENT LOADOUT UTILITY</div>
 <img class="brand-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
-    <div class="subtitle">eDPI Calculator</div>
-    <div class="subtitle">Calcula tu sensibilidad efectiva en Valorant</div>
+    <div class="subtitle" id="toolTitle">eDPI Calculator</div>
+  <div class="subtitle" id="subtitleText">
+  Calcula tu sensibilidad efectiva en Valorant
+</div>
 
     <div class="panel">
       <div class="field">
-        <div class="field-label">DPI del mouse <span class="unit">dots / inch</span></div>
+      <div class="field-label">
+  <span id="dpiLabel">DPI del mouse</span>
+  <span class="unit">dots / inch</span>
+</div>
         <div class="input-wrap">
           <input type="number" id="dpi" placeholder="800" min="1" step="1">
         </div>
@@ -50,7 +60,10 @@
       </div>
 
       <div class="field">
-        <div class="field-label">Sensibilidad en juego <span class="unit">valorant</span></div>
+       <div class="field-label">
+  <span id="sensitivityLabel">Sensibilidad en juego</span>
+  <span class="unit">Valorant</span>
+</div>
         <div class="input-wrap">
           <input type="number" id="sens" placeholder="0.35" min="0.01" step="0.01">
         </div>
@@ -61,10 +74,13 @@
         </div>
       </div>
 
-      <button class="calc-btn" id="calcBtn">▸ Calcular eDPI</button>
+    <button type="button" class="calc-btn" id="calcBtn">
+  <span>▶</span>
+  <span id="calculateText">CALCULAR EDPI</span>
+</button>
 
       <div class="result" id="result">
-        <div class="result-label">Tu eDPI es</div>
+        <div class="result-label" id="resultLabel">Tu eDPI es</div>
         <div class="result-value" id="resultValue">0</div>
         <div id="badgeWrap"></div>
         <div class="result-note" id="resultNote"></div>
@@ -74,23 +90,23 @@
     <div class="footer-line">eDPI = DPI × Sensibilidad</div>
   </div>
   <section class="info-section">
-  <h2>¿Qué es el eDPI?</h2>
+  <h2 id="infoTitle">¿Qué es el eDPI?</h2>
 
-  <p>
+  <p id="infoText1"><
     El eDPI es una forma de comparar sensibilidades entre jugadores aunque usen
     diferentes valores de DPI.
   </p>
 
-  <p>
+  <p id="infoText2">
     Se calcula multiplicando el DPI del mouse por la sensibilidad configurada
     dentro de Valorant.
   </p>
 
-  <div class="formula-card">
+<div class="formula-card" id="formulaText">
     eDPI = DPI × sensibilidad
   </div>
 </section>
-  <footer class="site-footer">
+ <footer class="site-footer" id="disclaimerText">
   ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.
 </footer>
 
