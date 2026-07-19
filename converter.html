@@ -406,17 +406,17 @@
 
         <div class="sens-result-details">
           <div class="sens-detail">
-            <span>eDPI de origen</span>
+            <span id="sourceEdpiLabel">eDPI de origen</span>
             <strong id="sourceEdpi">—</strong>
           </div>
 
           <div class="sens-detail">
-            <span>cm por 360°</span>
+            <span id="cm360Label">cm por 360°</span>
             <strong id="sourceCm360">—</strong>
           </div>
 
           <div class="sens-detail">
-            <span>DPI utilizado</span>
+            <span id="resultDpiLabel">DPI utilizado</span>
             <strong id="resultDpi">—</strong>
           </div>
         </div>
@@ -513,6 +513,9 @@ const converterLanguageButtons =
 
 const converterTranslations = {
   es: {
+    sourceEdpiLabel: "eDPI de origen",
+    cm360Label: "cm por 360°",
+    resultDpiLabel: "DPI utilizado",
     navEdpi: "Calculadora de eDPI",
     navConverter: "Conversor de sensibilidad",
     title: "Conversor de sensibilidad",
@@ -531,6 +534,9 @@ const converterTranslations = {
   },
 
   en: {
+    sourceEdpiLabel: "Source eDPI",
+    cm360Label: "cm per 360°",
+    resultDpiLabel: "DPI used",
     navEdpi: "eDPI Calculator",
     navConverter: "Sensitivity Converter",
     title: "Sensitivity Converter",
@@ -586,6 +592,15 @@ document.getElementById("navConverter").textContent =
 
   document.getElementById("resultLabel").textContent =
     text.result;
+
+    document.getElementById("sourceEdpiLabel").textContent =
+  text.sourceEdpiLabel;
+  
+  document.getElementById("cm360Label").textContent =
+  text.cm360Label;
+
+document.getElementById("resultDpiLabel").textContent =
+  text.resultDpiLabel;
 
   document.getElementById("converterNote").textContent =
     text.note;
