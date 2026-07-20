@@ -25,3 +25,4 @@ Herramientas rápidas y gratuitas para jugadores de Valorant.
 ## Estado
 
 Proyecto en desarrollo.
+SEO phase 1 completed.
