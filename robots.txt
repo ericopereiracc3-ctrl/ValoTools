@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ericopereiracc3-ctrl.github.io/ValoTools/sitemap.xml

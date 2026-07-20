@@ -8,13 +8,50 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <meta
-    name="description"
-    content="Conversor de sensibilidad entre Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 y Call of Duty Warzone."
-  />
+<title>Valorant Sensitivity Converter | ValoTools</title>
 
-  <title>Conversor de sensibilidad | ValoTools</title>
+<meta
+  name="description"
+  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
+>
 
+<link
+  rel="canonical"
+  href="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html"
+>
+
+<meta property="og:site_name" content="ValoTools">
+<meta
+  property="og:title"
+  content="Valorant Sensitivity Converter | ValoTools"
+>
+<meta
+  property="og:description"
+  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
+>
+<meta property="og:type" content="website">
+<meta
+  property="og:url"
+  content="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html"
+>
+<meta
+  property="og:image"
+  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
+>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta
+  name="twitter:title"
+  content="Valorant Sensitivity Converter | ValoTools"
+>
+<meta
+  name="twitter:description"
+  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
+>
+<meta
+  name="twitter:image"
+  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
+>
   <link
     rel="icon"
     type="image/png"
@@ -439,6 +476,10 @@
  </section>
   </main>
 
+<footer class="site-footer" id="converterDisclaimer">
+  ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.
+</footer>
+
   <script>
     const games = {
       valorant: {
@@ -566,6 +607,13 @@ function setConverterLanguage(language) {
 
   currentConverterLanguage = language;
   document.documentElement.lang = language;
+
+  converterLanguageButtons.forEach((button) => {
+  button.classList.toggle(
+    "active",
+    button.dataset.lang === language
+  );
+});
 
   document.getElementById("converterTitle").textContent =
     text.title;
@@ -766,10 +814,6 @@ const savedConverterLanguage =
 setConverterLanguage(savedConverterLanguage);
 updateInterface();
 </script>
-
-<footer class="site-footer" id="converterDisclaimer">
-  ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.
-</footer>
 
 </body>
 </html>
