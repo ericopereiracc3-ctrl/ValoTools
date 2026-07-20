@@ -513,6 +513,8 @@ const converterLanguageButtons =
 
 const converterTranslations = {
   es: {
+    disclaimer:
+  "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.",
     sourceEdpiLabel: "eDPI de origen",
     cm360Label: "cm por 360°",
     resultDpiLabel: "DPI utilizado",
@@ -534,6 +536,8 @@ const converterTranslations = {
   },
 
   en: {
+    disclaimer:
+  "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.",
     sourceEdpiLabel: "Source eDPI",
     cm360Label: "cm per 360°",
     resultDpiLabel: "DPI used",
@@ -574,6 +578,9 @@ function setConverterLanguage(language) {
 
 document.getElementById("navConverter").textContent =
   text.navConverter;
+
+  document.getElementById("converterDisclaimer").textContent =
+  text.disclaimer;
 
   document.getElementById("sourceGameLabel").textContent =
     text.sourceGame;
@@ -759,5 +766,10 @@ const savedConverterLanguage =
 setConverterLanguage(savedConverterLanguage);
 updateInterface();
 </script>
+
+<footer class="site-footer" id="converterDisclaimer">
+  ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.
+</footer>
+
 </body>
 </html>
