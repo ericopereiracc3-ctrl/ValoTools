@@ -1,14 +1,10 @@
 const DATA_URL = "data/pro-settings.json";
-const LANGUAGE_KEY = "valotools-language";
 
 const translations = {
   en: {
-    navEdpi: "eDPI Calculator",
-    navConverter: "Sensitivity Converter",
-    navProSettings: "Pro Settings",
     eyebrow: "Competitive loadout database",
     title: "Valorant Pro Settings",
-    intro: "Explore player sensitivity, calculated eDPI and gaming gear in one searchable database. Verified professional records will replace the demonstration data below.",
+    intro: "Explore player sensitivity, calculated eDPI and gaming gear in one searchable database.",
     demoNotice: "Demo data only — these fictional players, teams and settings are not real professional records.",
     filterTitle: "Search and filters",
     searchLabel: "Search player or team",
@@ -38,18 +34,12 @@ const translations = {
     demo: "Demo record",
     selectedPlayer: "Selected player",
     details: "Player details",
-    closeDetails: "Close player details",
-    aboutTitle: "How to read these settings",
-    aboutText: "eDPI is calculated automatically by multiplying mouse DPI by in-game Valorant sensitivity. It makes sensitivity easier to compare across different DPI values. Always check the visible source and verification date before relying on a record.",
-    disclaimer: "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games."
+    closeDetails: "Close player details"
   },
   es: {
-    navEdpi: "Calculadora de eDPI",
-    navConverter: "Conversor de sensibilidad",
-    navProSettings: "Configuraciones Pro",
     eyebrow: "Base de datos de equipamiento competitivo",
     title: "Configuraciones Pro de Valorant",
-    intro: "Explora la sensibilidad, el eDPI calculado y el equipamiento de jugadores en una base de datos con búsqueda. Los registros profesionales verificados reemplazarán los datos de demostración.",
+    intro: "Explora la sensibilidad, el eDPI calculado y el equipamiento de jugadores en una base de datos con búsqueda.",
     demoNotice: "Solo datos de demostración: estos jugadores, equipos y ajustes ficticios no son registros profesionales reales.",
     filterTitle: "Búsqueda y filtros",
     searchLabel: "Buscar jugador o equipo",
@@ -79,10 +69,7 @@ const translations = {
     demo: "Registro demo",
     selectedPlayer: "Jugador seleccionado",
     details: "Detalles del jugador",
-    closeDetails: "Cerrar detalles del jugador",
-    aboutTitle: "Cómo leer estas configuraciones",
-    aboutText: "El eDPI se calcula automáticamente multiplicando el DPI del mouse por la sensibilidad de Valorant. Esto facilita comparar sensibilidades con distintos valores de DPI. Comprueba siempre la fuente visible y la fecha de verificación antes de usar un registro.",
-    disclaimer: "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games."
+    closeDetails: "Cerrar detalles del jugador"
   }
 };
 
@@ -96,7 +83,6 @@ const roleTranslations = {
 };
 
 const elements = {
-  languageButtons: document.querySelectorAll(".lang-btn"),
   search: document.getElementById("playerSearch"),
   team: document.getElementById("teamFilter"),
   region: document.getElementById("regionFilter"),
@@ -112,7 +98,7 @@ const elements = {
 };
 
 let records = [];
-let currentLanguage = localStorage.getItem(LANGUAGE_KEY) === "es" ? "es" : "en";
+let currentLanguage = window.ValoToolsUI?.getLanguage() || "en";
 let selectedPlayerId = null;
 let loadFailed = false;
 let modalScrollPosition = 0;
@@ -384,9 +370,6 @@ function updateStaticText() {
   document.documentElement.lang = currentLanguage;
 
   const content = {
-    navEdpi: text.navEdpi,
-    navConverter: text.navConverter,
-    navProSettings: text.navProSettings,
     eyebrowText: text.eyebrow,
     pageTitle: text.title,
     pageIntro: text.intro,
@@ -398,10 +381,7 @@ function updateStaticText() {
     roleFilterLabel: text.role,
     resultsTitle: text.resultsTitle,
     emptyState: text.noResults,
-    detailKicker: text.selectedPlayer,
-    aboutTitle: text.aboutTitle,
-    aboutText: text.aboutText,
-    disclaimerText: text.disclaimer
+    detailKicker: text.selectedPlayer
   };
 
   Object.entries(content).forEach(([id, value]) => {
@@ -410,18 +390,12 @@ function updateStaticText() {
 
   elements.search.placeholder = text.searchPlaceholder;
   elements.detailClose.setAttribute("aria-label", text.closeDetails);
-  elements.languageButtons.forEach((button) => {
-    const isActive = button.dataset.lang === currentLanguage;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", isActive.toString());
-  });
 
   if (loadFailed) elements.count.textContent = text.loadError;
 }
 
 function setLanguage(language) {
   currentLanguage = language === "es" ? "es" : "en";
-  localStorage.setItem(LANGUAGE_KEY, currentLanguage);
   updateStaticText();
   populateFilters();
   renderRecords();
@@ -463,9 +437,7 @@ elements.detailOverlay.addEventListener("click", (event) => {
   if (event.target === elements.detailOverlay) closeDetails();
 });
 document.addEventListener("keydown", handleModalKeydown);
-elements.languageButtons.forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.lang));
-});
+document.addEventListener("valotools:languagechange", (event) => setLanguage(event.detail.language));
 
 updateStaticText();
 loadRecords();

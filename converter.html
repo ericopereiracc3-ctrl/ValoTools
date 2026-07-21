@@ -1,834 +1,157 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Sensitivity Converter | ValoTools</title>
+  <meta name="description" content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°.">
+  <link rel="canonical" href="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta property="og:site_name" content="ValoTools">
+  <meta property="og:title" content="Valorant Sensitivity Converter | ValoTools">
+  <meta property="og:description" content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html">
+  <meta property="og:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
 
-<title>Valorant Sensitivity Converter | ValoTools</title>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valorant Sensitivity Converter | ValoTools">
+  <meta name="twitter:description" content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°.">
+  <meta name="twitter:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+  <meta name="theme-color" content="#0a0f14">
 
-<meta
-  name="description"
-  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
->
-
-<link
-  rel="canonical"
-  href="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html"
->
-
-<meta property="og:site_name" content="ValoTools">
-<meta
-  property="og:title"
-  content="Valorant Sensitivity Converter | ValoTools"
->
-<meta
-  property="og:description"
-  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
->
-<meta property="og:type" content="website">
-<meta
-  property="og:url"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/converter.html"
->
-<meta
-  property="og:image"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
->
-
-<meta name="twitter:card" content="summary_large_image">
-<meta
-  name="twitter:title"
-  content="Valorant Sensitivity Converter | ValoTools"
->
-<meta
-  name="twitter:description"
-  content="Convert mouse sensitivity between Valorant, Counter-Strike 2, Apex Legends, Overwatch 2 and Warzone using matching cm/360°."
->
-<meta
-  name="twitter:image"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
->
-  <link
-    rel="icon"
-    type="image/png"
-    href="assets/icons/favicon.png"
-  />
-
-  <link rel="stylesheet" href="css/style.css" />
-
-  <style>
-    .sens-converter-page {
-      width: min(100% - 32px, 620px);
-      margin: 40px auto;
-    }
-
-.sens-converter-card {
-  padding: 28px;
-  border: 1px solid rgba(174, 184, 194, 0.18);
-  background: rgba(8, 19, 28, 0.95);
-}
-
-    .sens-converter-logo {
-      display: block;
-      width: min(340px, 75%);
-      margin: 0 auto 22px;
-    }
-
-    .sens-converter-title {
-      margin: 0;
-      color: #ffffff;
-      text-align: center;
-      font-size: 1.4rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .sens-converter-description {
-      margin: 10px auto 26px;
-      color: #aeb8c2;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .sens-converter-form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .sens-field {
-      display: grid;
-      gap: 7px;
-    }
-
-    .sens-field label {
-      color: #aeb8c2;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .sens-field input,
-    .sens-field select {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 13px 14px;
-      border: 1px solid rgba(174, 184, 194, 0.2);
-      border-radius: 0;
-      background: rgba(13, 29, 41, 0.9);
-      color: #ffffff;
-      font: inherit;
-      font-weight: 700;
-      outline: none;
-    }
-
-    .sens-field input:focus,
-    .sens-field select:focus {
-      border-color: #4cdcd0;
-      box-shadow: 0 0 0 1px #4cdcd0;
-    }
-
-    .sens-converter-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .swap-games-btn {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid rgba(76, 220, 208, 0.45);
-      background: rgba(76, 220, 208, 0.07);
-      color: #4cdcd0;
-      font: inherit;
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .swap-games-btn:hover {
-      border-color: #4cdcd0;
-      background: rgba(76, 220, 208, 0.13);
-    }
-
-    .convert-sens-btn {
-      padding: 14px 16px;
-      border: 0;
-      background: #ff4655;
-      color: #08131c;
-      font: inherit;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .convert-sens-btn:hover {
-      filter: brightness(1.08);
-    }
-
-    .sens-error {
-      display: none;
-      margin: 0;
-      padding: 11px 12px;
-      border: 1px solid rgba(255, 70, 85, 0.4);
-      background: rgba(255, 70, 85, 0.08);
-      color: #ff8b95;
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-
-    .sens-error.show {
-      display: block;
-    }
-
-    .sens-result {
-      display: none;
-      margin-top: 24px;
-      padding: 20px;
-      border: 1px solid rgba(76, 220, 208, 0.35);
-      background: rgba(76, 220, 208, 0.06);
-      text-align: center;
-    }
-
-    .sens-result.show {
-      display: block;
-    }
-
-    .sens-result-label {
-      display: block;
-      color: #aeb8c2;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .sens-result-game {
-      display: block;
-      margin-top: 8px;
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .sens-result-value {
-      display: block;
-      margin-top: 5px;
-      color: #4cdcd0;
-      font-size: 2.8rem;
-      line-height: 1;
-    }
-
-    .sens-result-details {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .sens-detail {
-      padding: 11px 8px;
-      border: 1px solid rgba(174, 184, 194, 0.14);
-      background: rgba(8, 19, 28, 0.55);
-    }
-
-    .sens-detail span {
-      display: block;
-      color: #aeb8c2;
-      font-size: 0.62rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .sens-detail strong {
-      display: block;
-      margin-top: 5px;
-      color: #ffffff;
-      font-size: 0.9rem;
-    }
-
-    .sens-converter-note {
-      margin: 18px 0 0;
-      color: #7f8b96;
-      font-size: 0.72rem;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    .sens-converter-back {
-      display: block;
-      margin-top: 20px;
-      color: #aeb8c2;
-      font-size: 0.76rem;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .sens-converter-back:hover {
-      color: #4cdcd0;
-    }
-
-    @media (max-width: 520px) {
-      .sens-converter-page {
-        width: min(100% - 20px, 620px);
-        margin-top: 20px;
-      }
-
-      .sens-converter-card {
-        padding: 20px;
-      }
-
-      .sens-converter-grid,
-      .sens-result-details {
-        grid-template-columns: 1fr;
-      }
-
-      .converter-language-switch {
-  top: 8px;
-  right: 8px;
-}
-    }
-  </style>
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/converter.css">
 </head>
-
 <body>
-  <main class="sens-converter-page">
-    <section class="sens-converter-card">
-<div class="language-switcher">
-  <button type="button" class="lang-btn" data-lang="es">
-    ES
-  </button>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <nav class="tool-nav" data-nav-scroller aria-label="ValoTools tools">
+        <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
+        <a href="converter.html" class="tool-nav-link active" id="navConverter" aria-current="page">Sensitivity Converter</a>
+        <a href="pro-settings.html" class="tool-nav-link" id="navProSettings">Pro Settings</a>
+      </nav>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
 
-  <button type="button" class="lang-btn" data-lang="en">
-    EN
-  </button>
-</div>
+  <main class="site-shell">
+    <section class="page-hero">
+      <img class="page-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
+      <p class="page-eyebrow" id="eyebrowText">Cross-game sensitivity utility</p>
+      <h1 id="converterTitle">Valorant Sensitivity Converter</h1>
+      <p class="page-description" id="converterDescription">Convert sensitivity between supported games while keeping approximately the same hipfire turning distance.</p>
+    </section>
 
-<nav class="tool-nav" aria-label="ValoTools tools">
-  <a
-    href="index.html"
-    class="tool-nav-link"
-    id="navEdpi"
-  >
-    eDPI Calculator
-  </a>
+    <div class="tool-context-layout">
+      <section class="tool-card sens-converter-card" aria-labelledby="converterToolTitle">
+        <header class="tool-card-header">
+          <h2 id="converterToolTitle">Convert sensitivity</h2>
+          <p id="converterToolDescription">Choose a source game, a target game and your current settings.</p>
+        </header>
 
-  <a
-    href="converter.html"
-    class="tool-nav-link active"
-    id="navConverter"
-    aria-current="page"
-  >
-    Sensitivity Converter
-  </a>
+        <div class="sens-converter-form">
+          <div class="sens-converter-grid">
+            <div class="sens-field">
+              <label for="sourceGame" id="sourceGameLabel">Source game</label>
+              <select id="sourceGame">
+                <option value="valorant">Valorant</option>
+                <option value="cs2">Counter-Strike 2</option>
+                <option value="apex">Apex Legends</option>
+                <option value="overwatch2">Overwatch 2</option>
+                <option value="warzone">Call of Duty: Warzone</option>
+              </select>
+            </div>
 
-  <a
-    href="pro-settings.html"
-    class="tool-nav-link"
-    id="navProSettings"
-  >
-    Pro Settings
-  </a>
-</nav>
-
-      <img
-  class="sens-converter-logo"
-  src="assets/logo/valotools-wordmark.png"
-  alt="ValoTools"
-      />
-
-      <h1 class="sens-converter-title" id="converterTitle">
-        Conversor de sensibilidad
-      </h1>
-
-      <p class="sens-converter-description" id="converterDescription">
-        Convertí tu sensibilidad entre diferentes juegos manteniendo
-        aproximadamente la misma distancia de giro.
-      </p>
-
-      <div class="sens-converter-form">
-<div class="sens-converter-grid">
-  <div class="sens-field">
-    <label for="sourceGame" id="sourceGameLabel">
-      Juego de origen
-    </label>
-
-    <select id="sourceGame">
-      <option value="valorant">Valorant</option>
-      <option value="cs2">Counter-Strike 2</option>
-      <option value="apex">Apex Legends</option>
-      <option value="overwatch2">Overwatch 2</option>
-      <option value="warzone">Call of Duty: Warzone</option>
-    </select>
-  </div>
-
-  <div class="sens-field">
-    <label for="targetGame" id="targetGameLabel">
-      Juego de destino
-    </label>
-
-    <select id="targetGame">
-      <option value="cs2">Counter-Strike 2</option>
-      <option value="valorant">Valorant</option>
-      <option value="apex">Apex Legends</option>
-      <option value="overwatch2">Overwatch 2</option>
-      <option value="warzone">Call of Duty: Warzone</option>
-    </select>
-  </div>
-</div>
-
-<button
-  type="button"
-  class="swap-games-btn"
-  id="swapGamesBtn"
->
-  <span id="swapGamesText">⇄ Intercambiar juegos</span>
-</button>
-
-<div class="sens-field">
-  <label for="mouseDpi" id="mouseDpiLabel">
-    DPI del mouse
-  </label>
-
-  <input
-    type="number"
-    id="mouseDpi"
-    value="800"
-    min="1"
-    step="1"
-    inputmode="numeric"
-  />
-</div>
-
-<div class="sens-field">
-  <label for="sourceSensitivity" id="sourceSensitivityLabel">
-    Sensibilidad de Valorant
-  </label>
-
-  <input
-    type="number"
-    id="sourceSensitivity"
-    value="0.35"
-    min="0.0001"
-    step="0.001"
-    inputmode="decimal"
-  />
-</div>
-
-<p class="sens-error" id="sensError" aria-live="polite">
-  Revisá los valores ingresados.
-</p>
-
-<button
-  type="button"
-  class="convert-sens-btn"
-  id="convertSensBtn"
->
-  <span id="convertSensText">Convertir sensibilidad</span>
-</button>
-
-      <div
-        class="sens-result"
-        id="sensResult"
-        aria-live="polite"
-      >
-        <span class="sens-result-label" id="resultLabel">
-          Sensibilidad equivalente
-        </span>
-
-        <span class="sens-result-game" id="resultGame">
-          Counter-Strike 2
-        </span>
-
-        <strong class="sens-result-value" id="resultSensitivity">
-          —
-        </strong>
-
-        <div class="sens-result-details">
-          <div class="sens-detail">
-            <span id="sourceEdpiLabel">eDPI de origen</span>
-            <strong id="sourceEdpi">—</strong>
+            <div class="sens-field">
+              <label for="targetGame" id="targetGameLabel">Target game</label>
+              <select id="targetGame">
+                <option value="cs2">Counter-Strike 2</option>
+                <option value="valorant">Valorant</option>
+                <option value="apex">Apex Legends</option>
+                <option value="overwatch2">Overwatch 2</option>
+                <option value="warzone">Call of Duty: Warzone</option>
+              </select>
+            </div>
           </div>
 
-          <div class="sens-detail">
-            <span id="cm360Label">cm por 360°</span>
-            <strong id="sourceCm360">—</strong>
+          <button type="button" class="swap-games-btn" id="swapGamesBtn">
+            <span id="swapGamesText">⇄ Swap games</span>
+          </button>
+
+          <div class="sens-field">
+            <label for="mouseDpi" id="mouseDpiLabel">Mouse DPI</label>
+            <input type="number" id="mouseDpi" value="800" min="1" step="1" inputmode="numeric">
           </div>
 
-          <div class="sens-detail">
-            <span id="resultDpiLabel">DPI utilizado</span>
-            <strong id="resultDpi">—</strong>
+          <div class="sens-field">
+            <label for="sourceSensitivity" id="sourceSensitivityLabel">Sensitivity in Valorant</label>
+            <input type="number" id="sourceSensitivity" value="0.35" min="0.0001" step="0.001" inputmode="decimal">
+          </div>
+
+          <p class="sens-error" id="sensError" aria-live="polite">Review the entered values.</p>
+
+          <button type="button" class="primary-btn convert-sens-btn" id="convertSensBtn">
+            <span id="convertSensText">Convert sensitivity</span>
+          </button>
+        </div>
+
+        <div class="sens-result" id="sensResult" aria-live="polite">
+          <span class="sens-result-label" id="resultLabel">Equivalent sensitivity</span>
+          <span class="sens-result-game" id="resultGame">Counter-Strike 2</span>
+          <strong class="sens-result-value" id="resultSensitivity">—</strong>
+
+          <div class="sens-result-details">
+            <div class="sens-detail">
+              <span id="sourceEdpiLabel">Source eDPI</span>
+              <strong id="sourceEdpi">—</strong>
+            </div>
+            <div class="sens-detail">
+              <span id="cm360Label">cm per 360°</span>
+              <strong id="sourceCm360">—</strong>
+            </div>
+            <div class="sens-detail">
+              <span id="resultDpiLabel">DPI used</span>
+              <strong id="resultDpi">—</strong>
+            </div>
           </div>
         </div>
-      </div>
 
-      <p class="sens-converter-note" id="converterNote">
-        Se supone que utilizarás el mismo DPI en ambos juegos.
-        La conversión iguala aproximadamente los centímetros necesarios
-        para girar 360° con la mira normal. No incluye ADS, scopes,
-        multiplicadores de zoom ni ajustes especiales por héroe.
-      </p>
+        <p class="sens-converter-note" id="converterNote">This conversion assumes the same DPI in both games and matches normal hipfire turning distance. ADS, scopes and zoom multipliers are not included.</p>
+        <a class="sens-converter-back" href="index.html" id="backLink">← Back to the eDPI calculator</a>
+      </section>
 
-<a
-  class="sens-converter-back"
-  href="index.html"
-  id="backLink"
->
-  ← Volver a la calculadora de eDPI
-</a>
-</div>
- </section>
+      <aside class="context-column">
+        <section class="insight-carousel" data-insights="converter" aria-label="Sensitivity converter insights">
+          <div class="insight-header">
+            <span class="insight-label">Useful context</span>
+            <div class="insight-controls">
+              <button type="button" class="insight-arrow" data-insight-prev aria-label="Previous insight">←</button>
+              <button type="button" class="insight-arrow" data-insight-next aria-label="Next insight">→</button>
+            </div>
+          </div>
+          <div class="insight-stage" tabindex="0">
+            <h2 class="insight-title">Conversion context</h2>
+            <p class="insight-body">Useful context will appear here.</p>
+          </div>
+          <div class="insight-dots" aria-label="Choose insight"></div>
+        </section>
+      </aside>
+    </div>
   </main>
 
-<footer class="site-footer" id="converterDisclaimer">
-  ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.
-</footer>
-
-  <script>
-    const games = {
-      valorant: {
-        name: "Valorant",
-        yaw: 0.07
-      },
-
-      cs2: {
-        name: "Counter-Strike 2",
-        yaw: 0.022
-      },
-
-      apex: {
-        name: "Apex Legends",
-        yaw: 0.022
-      },
-
-      overwatch2: {
-        name: "Overwatch 2",
-        yaw: 0.0066
-      },
-
-      warzone: {
-        name: "Call of Duty: Warzone",
-        yaw: 0.0066
-      }
-    };
-
-    const sourceGame =
-      document.getElementById("sourceGame");
-
-    const targetGame =
-      document.getElementById("targetGame");
-
-    const mouseDpi =
-      document.getElementById("mouseDpi");
-
-    const sourceSensitivity =
-      document.getElementById("sourceSensitivity");
-
-    const sourceSensitivityLabel =
-      document.getElementById("sourceSensitivityLabel");
-
-    const swapGamesBtn =
-      document.getElementById("swapGamesBtn");
-
-    const convertSensBtn =
-      document.getElementById("convertSensBtn");
-
-    const sensError =
-      document.getElementById("sensError");
-
-    const sensResult =
-      document.getElementById("sensResult");
-
-    const resultGame =
-      document.getElementById("resultGame");
-
-    const resultSensitivity =
-      document.getElementById("resultSensitivity");
-
-    const sourceEdpi =
-      document.getElementById("sourceEdpi");
-
-    const sourceCm360 =
-      document.getElementById("sourceCm360");
-
-    const resultDpi =
-      document.getElementById("resultDpi");
-const converterLanguageButtons =
-  document.querySelectorAll(".lang-btn");
-
-const converterTranslations = {
-  es: {
-    disclaimer:
-  "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.",
-    sourceEdpiLabel: "eDPI de origen",
-    cm360Label: "cm por 360°",
-    resultDpiLabel: "DPI utilizado",
-    navEdpi: "Calculadora de eDPI",
-    navConverter: "Conversor de sensibilidad",
-    navProSettings: "Configuraciones Pro",
-    title: "Conversor de sensibilidad",
-    description:
-      "Convertí tu sensibilidad entre diferentes juegos manteniendo aproximadamente la misma distancia de giro.",
-    sourceGame: "Juego de origen",
-    targetGame: "Juego de destino",
-    mouseDpi: "DPI del mouse",
-    swap: "⇄ Intercambiar juegos",
-    convert: "Convertir sensibilidad",
-    result: "Sensibilidad equivalente",
-    back: "← Volver a la calculadora de eDPI",
-    note:
-      "Se supone que utilizarás el mismo DPI en ambos juegos. La conversión iguala aproximadamente los centímetros necesarios para girar 360° con la mira normal. No incluye ADS, scopes, multiplicadores de zoom ni ajustes especiales por héroe.",
-    sensitivity: "Sensibilidad de"
-  },
-
-  en: {
-    disclaimer:
-  "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.",
-    sourceEdpiLabel: "Source eDPI",
-    cm360Label: "cm per 360°",
-    resultDpiLabel: "DPI used",
-    navEdpi: "eDPI Calculator",
-    navConverter: "Sensitivity Converter",
-    navProSettings: "Pro Settings",
-    title: "Sensitivity Converter",
-    description:
-      "Convert your sensitivity between different games while keeping approximately the same turning distance.",
-    sourceGame: "Source game",
-    targetGame: "Target game",
-    mouseDpi: "Mouse DPI",
-    swap: "⇄ Swap games",
-    convert: "Convert sensitivity",
-    result: "Equivalent sensitivity",
-    back: "← Back to the eDPI calculator",
-    note:
-      "This conversion assumes the same DPI in both games and approximately matches the distance required for a normal 360° turn. It does not include ADS, scopes, zoom multipliers or hero-specific settings.",
-    sensitivity: "Sensitivity in"
-  }
-};
-let currentConverterLanguage = "es";
-
-function setConverterLanguage(language) {
-  const text =
-    converterTranslations[language] || converterTranslations.es;
-
-  currentConverterLanguage = language;
-  document.documentElement.lang = language;
-
-  converterLanguageButtons.forEach((button) => {
-  button.classList.toggle(
-    "active",
-    button.dataset.lang === language
-  );
-});
-
-  document.getElementById("converterTitle").textContent =
-    text.title;
-
-  document.getElementById("converterDescription").textContent =
-    text.description;
-    
-    document.getElementById("navEdpi").textContent =
-  text.navEdpi;
-
-document.getElementById("navConverter").textContent =
-  text.navConverter;
-
-document.getElementById("navProSettings").textContent =
-  text.navProSettings;
-
-  document.getElementById("converterDisclaimer").textContent =
-  text.disclaimer;
-
-  document.getElementById("sourceGameLabel").textContent =
-    text.sourceGame;
-
-  document.getElementById("targetGameLabel").textContent =
-    text.targetGame;
-
-  document.getElementById("mouseDpiLabel").textContent =
-    text.mouseDpi;
-
-  document.getElementById("swapGamesText").textContent =
-    text.swap;
-
-  document.getElementById("convertSensText").textContent =
-    text.convert;
-
-  document.getElementById("resultLabel").textContent =
-    text.result;
-
-    document.getElementById("sourceEdpiLabel").textContent =
-  text.sourceEdpiLabel;
-  
-  document.getElementById("cm360Label").textContent =
-  text.cm360Label;
-
-document.getElementById("resultDpiLabel").textContent =
-  text.resultDpiLabel;
-
-  document.getElementById("converterNote").textContent =
-    text.note;
-
-  document.getElementById("backLink").textContent =
-    text.back;
-
-  const selectedSource = games[sourceGame.value];
-
-  sourceSensitivityLabel.textContent =
-    `${text.sensitivity} ${selectedSource.name}`;
-converterLanguageButtons.forEach((button) => {
-  if (button.dataset.lang === language) {
-    button.classList.add("active");
-  } else {
-    button.classList.remove("active");
-  }
-});
-
-localStorage.setItem("valotools-language", language);
-}
-    function formatSensitivity(value) {
-      if (value >= 10) {
-        return Number(value.toFixed(2)).toString();
-      }
-
-      return Number(value.toFixed(4)).toString();
-    }
-function updateInterface() {
-  const selectedSource = games[sourceGame.value];
-
-  const text =
-    converterTranslations[currentConverterLanguage] ||
-    converterTranslations.es;
-
-  sourceSensitivityLabel.textContent =
-    `${text.sensitivity} ${selectedSource.name}`;
-
-  sensResult.classList.remove("show");
-  sensError.classList.remove("show");
-}
-function convertSensitivity() {
-  const dpi = Number.parseFloat(mouseDpi.value);
-  const sensitivity =
-    Number.parseFloat(sourceSensitivity.value);
-
-  const selectedSource = games[sourceGame.value];
-  const selectedTarget = games[targetGame.value];
-
-  if (sourceGame.value === targetGame.value) {
-    sensError.textContent =
-      currentConverterLanguage === "es"
-        ? "Seleccioná dos juegos diferentes."
-        : "Select two different games.";
-
-    sensError.classList.add("show");
-    sensResult.classList.remove("show");
-    return;
-  }
-
-  if (
-    !Number.isFinite(dpi) ||
-    !Number.isFinite(sensitivity) ||
-    dpi <= 0 ||
-    sensitivity <= 0
-  ) {
-    sensError.textContent =
-      currentConverterLanguage === "es"
-        ? "Ingresá un DPI y una sensibilidad válidos."
-        : "Enter a valid DPI and sensitivity.";
-
-    sensError.classList.add("show");
-    sensResult.classList.remove("show");
-    return;
-  }
-
-  const convertedSensitivity =
-    sensitivity *
-    (selectedSource.yaw / selectedTarget.yaw);
-
-  const calculatedEdpi = dpi * sensitivity;
-
-  const calculatedCm360 =
-    914.4 /
-    (
-      dpi *
-      sensitivity *
-      selectedSource.yaw
-    );
-
-  resultGame.textContent = selectedTarget.name;
-
-  resultSensitivity.textContent =
-    formatSensitivity(convertedSensitivity);
-
-  sourceEdpi.textContent =
-    Number(calculatedEdpi.toFixed(1));
-
-  sourceCm360.textContent =
-    `${calculatedCm360.toFixed(1)} cm`;
-
-  resultDpi.textContent =
-    `${Math.round(dpi)} DPI`;
-
-  sensError.classList.remove("show");
-  sensResult.classList.add("show");
-}
-
-function swapGames() {
-  const previousSource = sourceGame.value;
-
-  sourceGame.value = targetGame.value;
-  targetGame.value = previousSource;
-
-  updateInterface();
-}
-
-sourceGame.addEventListener(
-  "change",
-  updateInterface
-);
-
-targetGame.addEventListener("change", () => {
-  sensResult.classList.remove("show");
-  sensError.classList.remove("show");
-});
-
-swapGamesBtn.addEventListener(
-  "click",
-  swapGames
-);
-
-convertSensBtn.addEventListener(
-  "click",
-  convertSensitivity
-);
-
-[mouseDpi, sourceSensitivity].forEach((input) => {
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      convertSensitivity();
-    }
-  });
-});
-
-converterLanguageButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    setConverterLanguage(button.dataset.lang);
-    updateInterface();
-  });
-});
-
-const savedConverterLanguage =
-  localStorage.getItem("valotools-language") || "es";
-
-setConverterLanguage(savedConverterLanguage);
-updateInterface();
-</script>
-
+  <footer class="site-footer">
+    <p id="disclaimerText">ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.</p>
+  </footer>
+
+  <script src="js/shared-ui.js"></script>
+  <script src="js/converter.js"></script>
 </body>
 </html>

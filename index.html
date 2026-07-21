@@ -1,225 +1,192 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valorant eDPI Calculator | ValoTools</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant eDPI Calculator | ValoTools</title>
+  <meta name="description" content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings.">
+  <link rel="canonical" href="https://ericopereiracc3-ctrl.github.io/ValoTools/">
+  <meta name="google-site-verification" content="PJF6_xruJ6-PnC07tfmW-udyZAiptUifiNZCiwGfAvY">
 
-<meta
-  name="description"
-  content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings."
->
+  <meta property="og:site_name" content="ValoTools">
+  <meta property="og:title" content="Valorant eDPI Calculator | ValoTools">
+  <meta property="og:description" content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ericopereiracc3-ctrl.github.io/ValoTools/">
+  <meta property="og:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
 
-<link
-  rel="canonical"
-  href="https://ericopereiracc3-ctrl.github.io/ValoTools/"
->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valorant eDPI Calculator | ValoTools">
+  <meta name="twitter:description" content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings.">
+  <meta name="twitter:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+  <meta name="theme-color" content="#0a0f14">
 
-<meta name="google-site-verification" content="PJF6_xruJ6-PnC07tfmW-udyZAiptUifiNZCiwGfAvY" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
 
-<meta property="og:site_name" content="ValoTools">
-<meta property="og:title" content="Valorant eDPI Calculator | ValoTools">
-<meta
-  property="og:description"
-  content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings."
->
-<meta property="og:type" content="website">
-<meta
-  property="og:url"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/"
->
-<meta
-  property="og:image"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
->
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Valorant eDPI Calculator | ValoTools">
-<meta
-  name="twitter:description"
-  content="Calculate your Valorant eDPI, compare sensitivity ranges, and find equivalent sensitivities for different DPI settings."
->
-<meta
-  name="twitter:image"
-  content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png"
->
-<meta name="theme-color" content="#0a0f14">
-<link rel="icon" type="image/png" href="assets/icons/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "ValoTools",
-  "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/",
-  "applicationCategory": "GameApplication",
-  "operatingSystem": "Web",
-  "description": "Valorant eDPI calculator and sensitivity converter."
-}
-</script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ValoTools",
+    "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Web",
+    "description": "Valorant eDPI calculator and sensitivity converter."
+  }
+  </script>
 </head>
 <body>
-
-  <div class="frame">
-<div class="language-switcher">
-  <button type="button" class="lang-btn" data-lang="es">
-    ES
-  </button>
-
-  <button type="button" class="lang-btn" data-lang="en">
-    EN
-  </button>
-</div>
-
-<nav class="tool-nav" aria-label="ValoTools tools">
-  <a
-    href="index.html"
-    class="tool-nav-link active"
-    id="navEdpi"
-    aria-current="page"
-  >
-    eDPI Calculator
-  </a>
-
-  <a
-    href="converter.html"
-    class="tool-nav-link"
-    id="navConverter"
-  >
-    Sensitivity Converter
-  </a>
-
-  <a
-    href="pro-settings.html"
-    class="tool-nav-link"
-    id="navProSettings"
-  >
-    Pro Settings
-  </a>
-</nav>
-
-    <div class="bracket tl"></div>
-    <div class="bracket tr"></div>
-    <div class="bracket bl"></div>
-    <div class="bracket br"></div>
-
-    <div class="eyebrow"><span class="dot"></span> AGENT LOADOUT UTILITY</div>
-<img class="brand-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
-    <div class="subtitle" id="toolTitle">eDPI Calculator</div>
-  <div class="subtitle" id="subtitleText">
-  Calcula tu sensibilidad efectiva en Valorant
-</div>
-
-    <div class="panel">
-      <div class="field">
-      <div class="field-label">
-  <span id="dpiLabel">DPI del mouse</span>
-  <span class="unit">dots / inch</span>
-</div>
-        <div class="input-wrap">
-          <input type="number" id="dpi" placeholder="800" min="1" step="1">
-        </div>
-        <div class="quick-row">
-          <button type="button" class="quick-btn" data-target="dpi" data-val="400">400</button>
-          <button type="button" class="quick-btn" data-target="dpi" data-val="800">800</button>
-          <button type="button" class="quick-btn" data-target="dpi" data-val="1600">1600</button>
-        </div>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <nav class="tool-nav" data-nav-scroller aria-label="ValoTools tools">
+        <a href="index.html" class="tool-nav-link active" id="navEdpi" aria-current="page">eDPI Calculator</a>
+        <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
+        <a href="pro-settings.html" class="tool-nav-link" id="navProSettings">Pro Settings</a>
+      </nav>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
       </div>
-
-      <div class="field">
-       <div class="field-label">
-  <span id="sensitivityLabel">Sensibilidad en juego</span>
-  <span class="unit">Valorant</span>
-</div>
-        <div class="input-wrap">
-          <input type="number" id="sens" placeholder="0.35" min="0.01" step="0.01">
-        </div>
-        <div class="quick-row">
-          <button type="button" class="quick-btn" data-target="sens" data-val="0.20">0.20</button>
-          <button type="button" class="quick-btn" data-target="sens" data-val="0.35">0.35</button>
-          <button type="button" class="quick-btn" data-target="sens" data-val="0.50">0.50</button>
-        </div>
-      </div>
-
-    <button type="button" class="calc-btn" id="calcBtn">
-  <span>▶</span>
-  <span id="calculateText">CALCULAR EDPI</span>
-</button>
-
-      <div class="result" id="result">
-        <div class="result-label" id="resultLabel">Tu eDPI es</div>
-        <div class="result-value" id="resultValue">0</div>
-        <div id="badgeWrap"></div>
-        <div class="edpi-scale">
-  <div class="scale-track">
-    <div class="scale-marker" id="scaleMarker"></div>
-  </div>
-
-  <div class="scale-labels">
-<span id="scaleLow">Low</span>
-<span id="scaleMedium">Medium</span>
-<span id="scaleHigh">High</span>
-  </div>
-</div>
-        <div class="result-note" id="resultNote"></div>
-        <button type="button" class="copy-btn" id="copyBtn">
-  <span id="copyText">COPY RESULT</span>
-</button>
-<div class="converter">
-  <label for="targetDpi" id="targetDpiLabel">Convert to DPI</label>
-
-  <div class="converter-row">
-    <input
-      type="number"
-      id="targetDpi"
-      value="1600"
-      min="1"
-      step="1"
-    />
-
-    <div class="converted-sens">
-      <span id="convertedLabel">Equivalent sensitivity</span>
-      <strong id="convertedValue">—</strong>
     </div>
+  </header>
 
-    <div class="target-quick-buttons">
-      <button type="button" data-target-dpi="400">400</button>
-      <button type="button" data-target-dpi="800">800</button>
-      <button type="button" data-target-dpi="1600">1600</button>
+  <main class="site-shell">
+    <section class="page-hero">
+      <img class="page-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
+      <p class="page-eyebrow" id="eyebrowText">Sensitivity utility</p>
+      <h1 id="pageTitle">Valorant eDPI Calculator</h1>
+      <p class="page-description" id="pageDescription">Calculate effective sensitivity and compare different DPI setups without changing how your aim feels.</p>
+    </section>
+
+    <div class="tool-context-layout">
+      <section class="tool-card edpi-card" aria-labelledby="calculatorTitle">
+        <header class="tool-card-header">
+          <h2 id="calculatorTitle">Calculate eDPI</h2>
+          <p id="calculatorDescription">Enter your mouse DPI and in-game Valorant sensitivity.</p>
+        </header>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="dpi" id="dpiLabel">Mouse DPI</label>
+            <span class="unit">dots / inch</span>
+          </div>
+          <div class="input-wrap">
+            <input type="number" id="dpi" placeholder="800" min="1" step="1" inputmode="numeric">
+          </div>
+          <div class="quick-row" aria-label="Common DPI values">
+            <button type="button" class="quick-btn" data-target="dpi" data-val="400">400</button>
+            <button type="button" class="quick-btn" data-target="dpi" data-val="800">800</button>
+            <button type="button" class="quick-btn" data-target="dpi" data-val="1600">1600</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label">
+            <label for="sens" id="sensitivityLabel">In-game sensitivity</label>
+            <span class="unit">Valorant</span>
+          </div>
+          <div class="input-wrap">
+            <input type="number" id="sens" placeholder="0.35" min="0.01" step="0.01" inputmode="decimal">
+          </div>
+          <div class="quick-row" aria-label="Common sensitivity values">
+            <button type="button" class="quick-btn" data-target="sens" data-val="0.20">0.20</button>
+            <button type="button" class="quick-btn" data-target="sens" data-val="0.35">0.35</button>
+            <button type="button" class="quick-btn" data-target="sens" data-val="0.50">0.50</button>
+          </div>
+        </div>
+
+        <button type="button" class="primary-btn calc-btn" id="calcBtn">
+          <span aria-hidden="true">▶</span>
+          <span id="calculateText">Calculate eDPI</span>
+        </button>
+
+        <div class="result" id="result" aria-live="polite">
+          <p class="result-label" id="resultLabel">Your eDPI is</p>
+          <p class="result-value" id="resultValue">0</p>
+          <div id="badgeWrap"></div>
+
+          <div class="edpi-meter" aria-labelledby="meterTitle">
+            <p class="meter-title" id="meterTitle">Sensitivity ranges</p>
+            <div class="scale-track">
+              <button type="button" class="scale-segment scale-low" data-tier="low" aria-describedby="meterExplanation">
+                <span id="scaleLow">Low / control</span>
+                <strong id="scaleLowRange">Below 220</strong>
+              </button>
+              <button type="button" class="scale-segment scale-medium" data-tier="mid" aria-describedby="meterExplanation">
+                <span id="scaleMedium">Medium / balance</span>
+                <strong id="scaleMediumRange">220–400</strong>
+              </button>
+              <button type="button" class="scale-segment scale-high" data-tier="high" aria-describedby="meterExplanation">
+                <span id="scaleHigh">High / reaction</span>
+                <strong id="scaleHighRange">Above 400</strong>
+              </button>
+              <div class="scale-marker" id="scaleMarker" aria-hidden="true">
+                <span id="scaleMarkerValue">0 eDPI</span>
+              </div>
+            </div>
+            <p class="meter-explanation" id="meterExplanation">Focus or tap a range to learn more.</p>
+          </div>
+
+          <p class="result-note" id="resultNote"></p>
+          <button type="button" class="secondary-btn copy-btn" id="copyBtn">
+            <span id="copyText">Copy result</span>
+          </button>
+
+          <div class="dpi-converter">
+            <label for="targetDpi" id="targetDpiLabel">Convert to DPI</label>
+            <div class="converter-row">
+              <input type="number" id="targetDpi" value="1600" min="1" step="1" inputmode="numeric">
+              <div class="converted-sens">
+                <span id="convertedLabel">Equivalent sensitivity</span>
+                <strong id="convertedValue">—</strong>
+              </div>
+              <div class="target-quick-buttons">
+                <button type="button" data-target-dpi="400">400</button>
+                <button type="button" data-target-dpi="800">800</button>
+                <button type="button" data-target-dpi="1600">1600</button>
+              </div>
+            </div>
+          </div>
+          <p class="footer-line" id="formulaLine">eDPI = DPI × sensitivity</p>
+        </div>
+      </section>
+
+      <aside class="context-column">
+        <section class="info-card" aria-labelledby="infoTitle">
+          <h2 id="infoTitle">What is eDPI?</h2>
+          <p id="infoText1">eDPI compares sensitivity settings between players who use different mouse DPI values.</p>
+          <p id="infoText2">Multiply mouse DPI by Valorant sensitivity to calculate it.</p>
+          <div class="formula-card" id="formulaText">eDPI = DPI × sensitivity</div>
+        </section>
+
+        <section class="insight-carousel" data-insights="edpi" aria-label="eDPI insights">
+          <div class="insight-header">
+            <span class="insight-label">Useful context</span>
+            <div class="insight-controls">
+              <button type="button" class="insight-arrow" data-insight-prev aria-label="Previous insight">←</button>
+              <button type="button" class="insight-arrow" data-insight-next aria-label="Next insight">→</button>
+            </div>
+          </div>
+          <div class="insight-stage" tabindex="0">
+            <h2 class="insight-title">Understanding eDPI</h2>
+            <p class="insight-body">Useful context will appear here.</p>
+          </div>
+          <div class="insight-dots" aria-label="Choose insight"></div>
+        </section>
+      </aside>
     </div>
-  </div>
-</div>
-    <div class="footer-line">eDPI = DPI × Sensibilidad</div>
-  </div>
-  <section class="info-section">
-  <h2 id="infoTitle">¿Qué es el eDPI?</h2>
+  </main>
 
-  <p id="infoText1">
-    El eDPI es una forma de comparar sensibilidades entre jugadores aunque usen
-    diferentes valores de DPI.
-  </p>
+  <footer class="site-footer">
+    <p id="disclaimerText">ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.</p>
+  </footer>
 
-  <p id="infoText2">
-    Se calcula multiplicando el DPI del mouse por la sensibilidad configurada
-    dentro de Valorant.
-  </p>
-
-<div class="formula-card" id="formulaText">
-    eDPI = DPI × sensibilidad
-</div>
-</section>
-  </div>
-  </div>
-  
-   <footer class="site-footer" id="disclaimerText">
-  ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.
-</footer>
-
-<script src="js/app.js"></script>
-
+  <script src="js/shared-ui.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

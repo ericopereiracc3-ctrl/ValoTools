@@ -54,30 +54,30 @@
   }
   </script>
 </head>
-<body class="pro-settings-body">
-  <div class="language-switcher" aria-label="Language selector">
-    <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
-    <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-  </div>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <nav class="tool-nav" data-nav-scroller aria-label="ValoTools tools">
+        <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
+        <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
+        <a href="pro-settings.html" class="tool-nav-link active" id="navProSettings" aria-current="page">Pro Settings</a>
+      </nav>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
 
-  <nav class="tool-nav" aria-label="ValoTools tools">
-    <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
-    <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
-    <a href="pro-settings.html" class="tool-nav-link active" id="navProSettings" aria-current="page">Pro Settings</a>
-  </nav>
-
-  <main class="pro-settings-page">
-    <header class="pro-hero">
-      <img class="pro-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
-      <p class="pro-eyebrow" id="eyebrowText">Competitive loadout database</p>
+  <main class="site-shell pro-settings-page">
+    <section class="page-hero">
+      <img class="page-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
+      <p class="page-eyebrow" id="eyebrowText">Competitive loadout database</p>
       <h1 id="pageTitle">Valorant Pro Settings</h1>
-      <p class="pro-intro" id="pageIntro">
-        Explore player sensitivity, calculated eDPI and gaming gear in one searchable database. Verified professional records will replace the demonstration data below.
-      </p>
-      <p class="demo-notice" id="demoNotice">
-        Demo data only — these fictional players, teams and settings are not real professional records.
-      </p>
-    </header>
+      <p class="page-description" id="pageIntro">Explore player sensitivity, calculated eDPI and gaming gear in one searchable database.</p>
+    </section>
+
+    <p class="demo-notice" id="demoNotice">Demo data only — these fictional players, teams and settings are not real professional records.</p>
 
     <section class="pro-controls" aria-labelledby="filterTitle">
       <h2 class="visually-hidden" id="filterTitle">Search and filters</h2>
@@ -108,26 +108,29 @@
       <p class="empty-state" id="emptyState" hidden>No players match the current search and filters.</p>
     </section>
 
-    <section class="pro-about" aria-labelledby="aboutTitle">
-      <h2 id="aboutTitle">How to read these settings</h2>
-      <p id="aboutText">
-        eDPI is calculated automatically by multiplying mouse DPI by in-game Valorant sensitivity. It makes sensitivity easier to compare across different DPI values. Always check the visible source and verification date before relying on a record.
-      </p>
-    </section>
+    <div class="pro-insights-wrap">
+      <section class="insight-carousel" data-insights="pro-settings" aria-label="Pro settings insights">
+        <div class="insight-header">
+          <span class="insight-label">Useful context</span>
+          <div class="insight-controls">
+            <button type="button" class="insight-arrow" data-insight-prev aria-label="Previous insight">←</button>
+            <button type="button" class="insight-arrow" data-insight-next aria-label="Next insight">→</button>
+          </div>
+        </div>
+        <div class="insight-stage" tabindex="0">
+          <h2 class="insight-title">Reading player settings</h2>
+          <p class="insight-body">Useful context will appear here.</p>
+        </div>
+        <div class="insight-dots" aria-label="Choose insight"></div>
+      </section>
+    </div>
   </main>
 
   <div class="detail-overlay" id="detailOverlay" hidden>
-    <section
-      class="detail-panel"
-      id="detailPanel"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="detailTitle"
-      tabindex="-1"
-    >
+    <section class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1">
       <div class="detail-header">
         <div>
-          <p class="detail-kicker" id="detailKicker">Selected player</p>
+          <p class="section-eyebrow detail-kicker" id="detailKicker">Selected player</p>
           <h2 id="detailTitle">Player details</h2>
         </div>
         <button type="button" class="detail-close" id="detailClose" aria-label="Close player details">×</button>
@@ -136,10 +139,11 @@
     </section>
   </div>
 
-  <footer class="site-footer" id="disclaimerText">
-    ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.
+  <footer class="site-footer">
+    <p id="disclaimerText">ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.</p>
   </footer>
 
+  <script src="js/shared-ui.js"></script>
   <script src="js/pro-settings.js"></script>
 </body>
 </html>

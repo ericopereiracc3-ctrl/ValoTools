@@ -1,0 +1,107 @@
+{
+  "edpi": [
+    {
+      "id": "meaning",
+      "en": {
+        "title": "What eDPI means",
+        "body": "eDPI combines mouse DPI and in-game sensitivity into one value, making different setups easier to compare."
+      },
+      "es": {
+        "title": "Qué significa el eDPI",
+        "body": "El eDPI combina el DPI del mouse y la sensibilidad del juego en un solo valor para facilitar la comparación entre configuraciones."
+      }
+    },
+    {
+      "id": "same-edpi",
+      "en": {
+        "title": "Keep the same eDPI",
+        "body": "When changing mouse DPI, adjust in-game sensitivity in the opposite direction to preserve the same effective sensitivity."
+      },
+      "es": {
+        "title": "Mantén el mismo eDPI",
+        "body": "Al cambiar el DPI del mouse, ajusta la sensibilidad del juego en la dirección opuesta para conservar la misma sensibilidad efectiva."
+      }
+    },
+    {
+      "id": "one-change",
+      "en": {
+        "title": "Change one variable",
+        "body": "Test DPI or sensitivity separately. Changing one variable at a time makes the result easier to evaluate."
+      },
+      "es": {
+        "title": "Cambia una sola variable",
+        "body": "Prueba el DPI o la sensibilidad por separado. Cambiar una variable a la vez facilita evaluar el resultado."
+      }
+    }
+  ],
+  "converter": [
+    {
+      "id": "same-dpi",
+      "en": {
+        "title": "Use the same DPI",
+        "body": "The conversion assumes that you keep the same mouse DPI in the source and target games."
+      },
+      "es": {
+        "title": "Usa el mismo DPI",
+        "body": "La conversión supone que mantienes el mismo DPI del mouse en el juego de origen y en el de destino."
+      }
+    },
+    {
+      "id": "aim-modes",
+      "en": {
+        "title": "Hipfire and scopes differ",
+        "body": "A matching hipfire turn distance does not necessarily produce the same feel for ADS, scopes or zoom multipliers."
+      },
+      "es": {
+        "title": "Hipfire y miras son distintos",
+        "body": "Igualar la distancia de giro en hipfire no produce necesariamente la misma sensación con ADS, miras o aumentos."
+      }
+    },
+    {
+      "id": "starting-point",
+      "en": {
+        "title": "Treat it as a starting point",
+        "body": "An equivalent value is a useful baseline. Small personal adjustments may still feel better in the target game."
+      },
+      "es": {
+        "title": "Úsalo como punto de partida",
+        "body": "Un valor equivalente es una base útil. Pequeños ajustes personales pueden sentirse mejor en el juego de destino."
+      }
+    }
+  ],
+  "pro-settings": [
+    {
+      "id": "verify",
+      "en": {
+        "title": "Check source and date",
+        "body": "Review the visible source and verification date before relying on any player setting."
+      },
+      "es": {
+        "title": "Comprueba fuente y fecha",
+        "body": "Revisa la fuente visible y la fecha de verificación antes de utilizar cualquier configuración de jugador."
+      }
+    },
+    {
+      "id": "preference",
+      "en": {
+        "title": "Settings are preferences",
+        "body": "A player configuration reflects personal comfort and habits. It is not a guarantee of better performance."
+      },
+      "es": {
+        "title": "Las configuraciones son preferencias",
+        "body": "La configuración de un jugador refleja comodidad y hábitos personales. No garantiza un mejor rendimiento."
+      }
+    },
+    {
+      "id": "gear",
+      "en": {
+        "title": "Gear is only one factor",
+        "body": "Mouse, keyboard and monitor choices do not guarantee the performance of the player who uses them."
+      },
+      "es": {
+        "title": "El equipo es solo un factor",
+        "body": "La elección de mouse, teclado y monitor no garantiza el rendimiento del jugador que los utiliza."
+      }
+    }
+  ]
+}
