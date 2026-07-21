@@ -11,6 +11,7 @@
       navEdpi: "eDPI Calculator",
       navConverter: "Sensitivity Converter",
       navProSettings: "Pro Settings",
+      navCrosshairs: "Crosshair Lab",
       disclaimer: "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.",
       insightLabel: "Useful context",
       previous: "Previous insight",
@@ -22,6 +23,7 @@
       navEdpi: "Calculadora de eDPI",
       navConverter: "Conversor de sensibilidad",
       navProSettings: "Configuraciones Pro",
+      navCrosshairs: "Laboratorio de miras",
       disclaimer: "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.",
       insightLabel: "Contexto útil",
       previous: "Información anterior",
@@ -53,7 +55,8 @@
     const navText = {
       navEdpi: text.navEdpi,
       navConverter: text.navConverter,
-      navProSettings: text.navProSettings
+      navProSettings: text.navProSettings,
+      navCrosshairs: text.navCrosshairs
     };
 
     Object.entries(navText).forEach(([id, value]) => {

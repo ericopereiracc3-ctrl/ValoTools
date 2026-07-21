@@ -1,0 +1,218 @@
+[
+  {
+    "id": "classic-anchor",
+    "nameEn": "Anchor",
+    "nameEs": "Ancla",
+    "category": "classic",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "cyan", "customColor": "00FFFF", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 4, "innerThickness": 2, "innerOffset": 2, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "classic-compass",
+    "nameEn": "Compass",
+    "nameEs": "Brújula",
+    "category": "classic",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "green", "customColor": "00FF00", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 0.9, "innerLength": 5, "innerThickness": 2, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "classic-fourfold",
+    "nameEn": "Fourfold",
+    "nameEs": "Cuatro puntos",
+    "category": "classic",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "white", "customColor": "FFFFFF", "outlineEnabled": true, "outlineOpacity": 0.4, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 6, "innerThickness": 1, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "classic-steady",
+    "nameEn": "Steady",
+    "nameEs": "Estable",
+    "category": "classic",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "pink", "customColor": "FF00FF", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 0.7, "centerDotThickness": 1, "innerLinesEnabled": true, "innerOpacity": 0.85, "innerLength": 4, "innerThickness": 1, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "compact-pulse",
+    "nameEn": "Pulse",
+    "nameEs": "Pulso",
+    "category": "compact",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "cyan", "customColor": "00FFFF", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 2, "innerThickness": 2, "innerOffset": 2, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "compact-needle",
+    "nameEn": "Needle",
+    "nameEs": "Aguja",
+    "category": "compact",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "yellow", "customColor": "FFFF00", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 3, "innerThickness": 1, "innerOffset": 1, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "compact-bracket",
+    "nameEn": "Bracket",
+    "nameEs": "Corchete",
+    "category": "compact",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "greenyellow", "customColor": "DFFF00", "outlineEnabled": true, "outlineOpacity": 0.3, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 0.9, "innerLength": 3, "innerThickness": 2, "innerOffset": 1, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "compact-pixel-gap",
+    "nameEn": "Pixel Gap",
+    "nameEs": "Brecha píxel",
+    "category": "compact",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "red", "customColor": "FF0000", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 1, "innerLinesEnabled": true, "innerOpacity": 0.8, "innerLength": 2, "innerThickness": 1, "innerOffset": 2, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "dot-pinpoint",
+    "nameEn": "Pinpoint",
+    "nameEs": "Punto preciso",
+    "category": "dot",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "cyan", "customColor": "00FFFF", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": false, "innerOpacity": 1, "innerLength": 0, "innerThickness": 0, "innerOffset": 0, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "dot-beacon",
+    "nameEn": "Beacon",
+    "nameEs": "Baliza",
+    "category": "dot",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "green", "customColor": "00FF00", "outlineEnabled": true, "outlineOpacity": 0.6, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 3, "innerLinesEnabled": false, "innerOpacity": 1, "innerLength": 0, "innerThickness": 0, "innerOffset": 0, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "dot-ember",
+    "nameEn": "Ember",
+    "nameEs": "Brasa",
+    "category": "dot",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "red", "customColor": "FF0000", "outlineEnabled": true, "outlineOpacity": 0.8, "outlineThickness": 2, "centerDotEnabled": true, "centerDotOpacity": 0.9, "centerDotThickness": 4, "innerLinesEnabled": false, "innerOpacity": 1, "innerLength": 0, "innerThickness": 0, "innerOffset": 0, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "dot-orbit",
+    "nameEn": "Orbit",
+    "nameEs": "Órbita",
+    "category": "dot",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "pink", "customColor": "FF00FF", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 0.75, "centerDotThickness": 3, "innerLinesEnabled": true, "innerOpacity": 0.45, "innerLength": 1, "innerThickness": 1, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "visibility-signal",
+    "nameEn": "Signal",
+    "nameEs": "Señal",
+    "category": "high-visibility",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "yellow", "customColor": "FFFF00", "outlineEnabled": true, "outlineOpacity": 0.7, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 6, "innerThickness": 3, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "visibility-flare",
+    "nameEn": "Flare",
+    "nameEs": "Destello",
+    "category": "high-visibility",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "pink", "customColor": "FF00FF", "outlineEnabled": true, "outlineOpacity": 0.8, "outlineThickness": 2, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 5, "innerThickness": 3, "innerOffset": 4, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "visibility-limewire",
+    "nameEn": "Limewire",
+    "nameEs": "Lima viva",
+    "category": "high-visibility",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "yellowgreen", "customColor": "7FFF00", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 7, "innerThickness": 3, "innerOffset": 2, "movementError": true, "firingError": false }
+  },
+  {
+    "id": "visibility-icefield",
+    "nameEn": "Icefield",
+    "nameEs": "Campo de hielo",
+    "category": "high-visibility",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "white", "customColor": "FFFFFF", "outlineEnabled": true, "outlineOpacity": 1, "outlineThickness": 2, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 5, "innerThickness": 2, "innerOffset": 4, "movementError": false, "firingError": true }
+  },
+  {
+    "id": "outlined-frame",
+    "nameEn": "Frame",
+    "nameEs": "Marco",
+    "category": "outlined",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "cyan", "customColor": "00FFFF", "outlineEnabled": true, "outlineOpacity": 1, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 4, "innerThickness": 2, "innerOffset": 2, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "outlined-carbon",
+    "nameEn": "Carbon",
+    "nameEs": "Carbono",
+    "category": "outlined",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "white", "customColor": "FFFFFF", "outlineEnabled": true, "outlineOpacity": 1, "outlineThickness": 3, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 0.9, "innerLength": 3, "innerThickness": 2, "innerOffset": 3, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "outlined-roseguard",
+    "nameEn": "Roseguard",
+    "nameEs": "Guarda rosa",
+    "category": "outlined",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "pink", "customColor": "FF00FF", "outlineEnabled": true, "outlineOpacity": 0.65, "outlineThickness": 2, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 4, "innerThickness": 2, "innerOffset": 4, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "outlined-redline",
+    "nameEn": "Redline",
+    "nameEs": "Línea roja",
+    "category": "outlined",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "red", "customColor": "FF0000", "outlineEnabled": true, "outlineOpacity": 0.9, "outlineThickness": 2, "centerDotEnabled": true, "centerDotOpacity": 0.8, "centerDotThickness": 1, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 5, "innerThickness": 2, "innerOffset": 2, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "experimental-radar",
+    "nameEn": "Radar",
+    "nameEs": "Radar",
+    "category": "experimental",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "custom", "customColor": "5EF7A8", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 0.6, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 0.75, "innerLength": 8, "innerThickness": 1, "innerOffset": 6, "movementError": true, "firingError": false }
+  },
+  {
+    "id": "experimental-afterimage",
+    "nameEn": "Afterimage",
+    "nameEs": "Posimagen",
+    "category": "experimental",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "custom", "customColor": "8FB8FF", "outlineEnabled": true, "outlineOpacity": 0.35, "outlineThickness": 1, "centerDotEnabled": false, "centerDotOpacity": 1, "centerDotThickness": 2, "innerLinesEnabled": true, "innerOpacity": 0.55, "innerLength": 10, "innerThickness": 1, "innerOffset": 1, "movementError": false, "firingError": true }
+  },
+  {
+    "id": "experimental-quartz",
+    "nameEn": "Quartz",
+    "nameEs": "Cuarzo",
+    "category": "experimental",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "custom", "customColor": "D8A7FF", "outlineEnabled": true, "outlineOpacity": 0.55, "outlineThickness": 2, "centerDotEnabled": true, "centerDotOpacity": 1, "centerDotThickness": 4, "innerLinesEnabled": true, "innerOpacity": 0.4, "innerLength": 2, "innerThickness": 4, "innerOffset": 7, "movementError": false, "firingError": false }
+  },
+  {
+    "id": "experimental-switchback",
+    "nameEn": "Switchback",
+    "nameEs": "Zigzag",
+    "category": "experimental",
+    "sourceType": "valotools-preset",
+    "verificationStatus": "needs-in-game-check",
+    "config": { "color": "custom", "customColor": "36D6C9", "outlineEnabled": false, "outlineOpacity": 0.5, "outlineThickness": 1, "centerDotEnabled": true, "centerDotOpacity": 0.5, "centerDotThickness": 1, "innerLinesEnabled": true, "innerOpacity": 1, "innerLength": 12, "innerThickness": 1, "innerOffset": 8, "movementError": true, "firingError": true }
+  }
+]

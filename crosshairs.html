@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Crosshair Generator &amp; Presets | ValoTools</title>
+  <meta name="description" content="Design a Valorant primary crosshair, preview it in your browser and copy a deterministic profile code from 24 original ValoTools presets.">
+  <link rel="canonical" href="https://ericopereiracc3-ctrl.github.io/ValoTools/crosshairs.html">
+  <meta name="google-site-verification" content="PJF6_xruJ6-PnC07tfmW-udyZAiptUifiNZCiwGfAvY">
+
+  <meta property="og:site_name" content="ValoTools">
+  <meta property="og:title" content="Valorant Crosshair Generator &amp; Presets | ValoTools">
+  <meta property="og:description" content="Design, preview and copy a Valorant primary crosshair code with 24 original ValoTools presets.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ericopereiracc3-ctrl.github.io/ValoTools/crosshairs.html">
+  <meta property="og:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valorant Crosshair Generator &amp; Presets | ValoTools">
+  <meta name="twitter:description" content="Design, preview and copy a Valorant primary crosshair code with 24 original ValoTools presets.">
+  <meta name="twitter:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+  <meta name="theme-color" content="#0a0f14">
+
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/crosshairs.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ValoTools Crosshair Lab",
+    "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/crosshairs.html",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Web",
+    "isAccessibleForFree": true,
+    "description": "A browser-based editor for designing and previewing Valorant primary crosshair profile codes.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ValoTools",
+      "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <nav class="tool-nav" data-nav-scroller aria-label="ValoTools tools">
+        <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
+        <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
+        <a href="pro-settings.html" class="tool-nav-link" id="navProSettings">Pro Settings</a>
+        <a href="crosshairs.html" class="tool-nav-link active" id="navCrosshairs" aria-current="page">Crosshair Lab</a>
+      </nav>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-shell crosshair-page">
+    <section class="page-hero crosshair-hero">
+      <img class="page-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
+      <p class="page-eyebrow" id="eyebrowText">Primary crosshair workshop</p>
+      <h1 id="pageTitle">Valorant Crosshair Lab</h1>
+      <p class="page-description" id="pageDescription">Design a primary crosshair, preview it locally and copy a deterministic profile code.</p>
+    </section>
+
+    <section class="crosshair-workspace" aria-labelledby="editorTitle">
+      <div class="preview-panel">
+        <div class="panel-heading preview-heading">
+          <div>
+            <p class="section-eyebrow" id="previewEyebrow">Live workspace</p>
+            <h2 id="previewTitle">Browser preview</h2>
+          </div>
+          <div class="background-switcher" aria-label="Preview background">
+            <button type="button" class="background-btn active" data-background="dark" aria-pressed="true" id="backgroundDark">Dark</button>
+            <button type="button" class="background-btn" data-background="light" aria-pressed="false" id="backgroundLight">Light</button>
+            <button type="button" class="background-btn" data-background="range" aria-pressed="false" id="backgroundRange">Range</button>
+          </div>
+        </div>
+
+        <div class="crosshair-preview preview-dark" id="crosshairPreview" role="img" aria-label="Crosshair browser preview">
+          <div class="range-scene" aria-hidden="true">
+            <span class="range-wall"></span>
+            <span class="range-target range-target-left"></span>
+            <span class="range-target range-target-right"></span>
+          </div>
+          <div class="crosshair-shape" id="crosshairShape" aria-hidden="true">
+            <span class="crosshair-line line-top"></span>
+            <span class="crosshair-line line-right"></span>
+            <span class="crosshair-line line-bottom"></span>
+            <span class="crosshair-line line-left"></span>
+            <span class="crosshair-dot"></span>
+          </div>
+        </div>
+
+        <p class="preview-caveat" id="previewCaveat">Browser preview. Test the code in VALORANT before competitive use.</p>
+        <div class="preview-flags" id="previewFlags" aria-live="polite"></div>
+      </div>
+
+      <form class="editor-panel" id="crosshairForm">
+        <div class="panel-heading">
+          <div>
+            <p class="section-eyebrow" id="editorEyebrow">Primary settings · V0.1</p>
+            <h2 id="editorTitle" tabindex="-1">Crosshair controls</h2>
+          </div>
+          <p class="selected-preset" id="selectedPresetLabel">Anchor</p>
+        </div>
+
+        <fieldset class="control-group">
+          <legend id="appearanceLegend">Appearance</legend>
+          <div class="control-grid color-controls">
+            <div class="select-control">
+              <label for="crosshairColor" id="colorLabel">Preset color</label>
+              <select id="crosshairColor" name="color">
+                <option value="white">White</option>
+                <option value="green">Green</option>
+                <option value="yellowgreen">Yellow green</option>
+                <option value="greenyellow">Green yellow</option>
+                <option value="yellow">Yellow</option>
+                <option value="cyan">Cyan</option>
+                <option value="pink">Pink</option>
+                <option value="red">Red</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <div class="hex-control">
+              <label for="customColor" id="customColorLabel">Custom hex</label>
+              <div class="hex-input-wrap">
+                <span aria-hidden="true">#</span>
+                <input id="customColor" name="customColor" type="text" value="00FFFF" maxlength="6" pattern="[0-9A-Fa-f]{6}" autocomplete="off" spellcheck="false" inputmode="text">
+                <span class="color-swatch" id="colorSwatch" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="toggle-grid">
+            <label class="toggle-control" for="outlineEnabled">
+              <span id="outlineEnabledLabel">Outlines</span>
+              <input type="checkbox" id="outlineEnabled" name="outlineEnabled">
+              <span class="toggle-track" aria-hidden="true"></span>
+            </label>
+            <label class="toggle-control" for="centerDotEnabled">
+              <span id="centerDotEnabledLabel">Center dot</span>
+              <input type="checkbox" id="centerDotEnabled" name="centerDotEnabled">
+              <span class="toggle-track" aria-hidden="true"></span>
+            </label>
+            <label class="toggle-control" for="innerLinesEnabled">
+              <span id="innerLinesEnabledLabel">Inner lines</span>
+              <input type="checkbox" id="innerLinesEnabled" name="innerLinesEnabled" checked>
+              <span class="toggle-track" aria-hidden="true"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group compact-ranges">
+          <legend id="outlineLegend">Outline</legend>
+          <div class="range-control">
+            <label for="outlineOpacity" id="outlineOpacityLabel">Opacity</label>
+            <input type="range" id="outlineOpacity" name="outlineOpacity" min="0" max="1" step="0.05" value="0.5">
+            <output for="outlineOpacity" id="outlineOpacityValue">0.5</output>
+          </div>
+          <div class="range-control">
+            <label for="outlineThickness" id="outlineThicknessLabel">Thickness</label>
+            <input type="range" id="outlineThickness" name="outlineThickness" min="1" max="6" step="1" value="1">
+            <output for="outlineThickness" id="outlineThicknessValue">1</output>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group compact-ranges">
+          <legend id="dotLegend">Center dot</legend>
+          <div class="range-control">
+            <label for="centerDotOpacity" id="centerDotOpacityLabel">Opacity</label>
+            <input type="range" id="centerDotOpacity" name="centerDotOpacity" min="0" max="1" step="0.05" value="1">
+            <output for="centerDotOpacity" id="centerDotOpacityValue">1</output>
+          </div>
+          <div class="range-control">
+            <label for="centerDotThickness" id="centerDotThicknessLabel">Thickness</label>
+            <input type="range" id="centerDotThickness" name="centerDotThickness" min="1" max="6" step="1" value="2">
+            <output for="centerDotThickness" id="centerDotThicknessValue">2</output>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group compact-ranges inner-controls">
+          <legend id="innerLegend">Inner lines</legend>
+          <div class="range-control">
+            <label for="innerOpacity" id="innerOpacityLabel">Opacity</label>
+            <input type="range" id="innerOpacity" name="innerOpacity" min="0" max="1" step="0.05" value="1">
+            <output for="innerOpacity" id="innerOpacityValue">1</output>
+          </div>
+          <div class="range-control">
+            <label for="innerLength" id="innerLengthLabel">Length</label>
+            <input type="range" id="innerLength" name="innerLength" min="0" max="20" step="1" value="4">
+            <output for="innerLength" id="innerLengthValue">4</output>
+          </div>
+          <div class="range-control">
+            <label for="innerThickness" id="innerThicknessLabel">Thickness</label>
+            <input type="range" id="innerThickness" name="innerThickness" min="0" max="10" step="1" value="2">
+            <output for="innerThickness" id="innerThicknessValue">2</output>
+          </div>
+          <div class="range-control">
+            <label for="innerOffset" id="innerOffsetLabel">Offset</label>
+            <input type="range" id="innerOffset" name="innerOffset" min="0" max="20" step="1" value="2">
+            <output for="innerOffset" id="innerOffsetValue">2</output>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend id="errorLegend">Error behavior</legend>
+          <div class="toggle-grid error-toggles">
+            <label class="toggle-control" for="movementError">
+              <span id="movementErrorLabel">Movement error</span>
+              <input type="checkbox" id="movementError" name="movementError">
+              <span class="toggle-track" aria-hidden="true"></span>
+            </label>
+            <label class="toggle-control" for="firingError">
+              <span id="firingErrorLabel">Firing error</span>
+              <input type="checkbox" id="firingError" name="firingError">
+              <span class="toggle-track" aria-hidden="true"></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="code-output">
+          <label for="crosshairCode" id="codeLabel">Generated profile code</label>
+          <textarea id="crosshairCode" rows="3" readonly spellcheck="false"></textarea>
+          <div class="editor-actions">
+            <button type="button" class="secondary-action" id="resetPresetButton">Restore selected preset</button>
+            <button type="button" class="copy-code-button" id="copyCodeButton">Copy code</button>
+          </div>
+          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="preset-library" aria-labelledby="libraryTitle">
+      <div class="library-heading">
+        <div>
+          <p class="section-eyebrow" id="libraryEyebrow">24 original ValoTools presets</p>
+          <h2 id="libraryTitle">Preset library</h2>
+        </div>
+        <p id="resultCount" aria-live="polite">24 results</p>
+      </div>
+
+      <div class="preset-filters" aria-labelledby="filterTitle">
+        <h3 class="visually-hidden" id="filterTitle">Search and filters</h3>
+        <div class="filter-control search-control">
+          <label for="presetSearch" id="searchLabel">Search by name</label>
+          <input type="search" id="presetSearch" placeholder="Preset name" autocomplete="off">
+        </div>
+        <div class="filter-control">
+          <label for="categoryFilter" id="categoryFilterLabel">Category</label>
+          <select id="categoryFilter"><option value="">All categories</option></select>
+        </div>
+        <div class="filter-control">
+          <label for="colorFilter" id="colorFilterLabel">Color</label>
+          <select id="colorFilter"><option value="">All colors</option></select>
+        </div>
+      </div>
+
+      <div class="preset-grid" id="presetGrid"></div>
+      <p class="preset-empty" id="presetEmpty" hidden>No presets match the current search and filters.</p>
+    </section>
+
+    <section class="crosshair-context" aria-labelledby="contextTitle">
+      <p class="section-eyebrow" id="contextEyebrow">Useful context</p>
+      <h2 id="contextTitle">Choose for clarity and comfort</h2>
+      <div class="context-points">
+        <p id="contextPreference">A crosshair is a personal preference; copy a preset as a starting point, not a promise of better aim.</p>
+        <p id="contextVisibility">High visibility does not mean higher accuracy. Contrast only helps you keep track of the crosshair.</p>
+        <p id="contextPractice">Test every code in the VALORANT practice range before relying on it in a competitive match.</p>
+        <p id="contextFuture">Professional configurations change over time and may be added in a future phase with clear source dates.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p id="disclaimerText">ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.</p>
+  </footer>
+
+  <script src="js/shared-ui.js"></script>
+  <script src="js/crosshair-codec.js"></script>
+  <script src="js/crosshairs.js"></script>
+</body>
+</html>
