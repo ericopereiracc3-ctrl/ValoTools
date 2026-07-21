@@ -210,6 +210,7 @@ const translations = {
   en: {
     navEdpi: "eDPI Calculator",
     navConverter: "Sensitivity Converter",
+    navProSettings: "Pro Settings",
     subtitle: "Calculate your effective sensitivity in Valorant",
     dpiLabel: "Mouse DPI",
     sensitivityLabel: "In-game sensitivity",
@@ -228,6 +229,7 @@ const translations = {
   es: {
     navEdpi: "Calculadora de eDPI",
     navConverter: "Conversor de sensibilidad",
+    navProSettings: "Configuraciones Pro",
     subtitle: "Calcula tu sensibilidad efectiva en Valorant",
     dpiLabel: "DPI del mouse",
     sensitivityLabel: "Sensibilidad en juego",
@@ -253,6 +255,7 @@ function setLanguage(language) {
   document.getElementById("subtitleText").textContent = text.subtitle;
   document.getElementById("navEdpi").textContent = text.navEdpi;
   document.getElementById("navConverter").textContent = text.navConverter;
+  document.getElementById("navProSettings").textContent = text.navProSettings;
   document.getElementById("dpiLabel").textContent = text.dpiLabel;
   document.getElementById("sensitivityLabel").textContent =
     text.sensitivityLabel;

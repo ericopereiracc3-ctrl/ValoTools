@@ -1,0 +1,44 @@
+[
+  {
+    "id": "demo-player-alpha",
+    "player": "Demo Player Alpha",
+    "team": "Demo Team Aurora",
+    "role": "Duelist",
+    "region": "Americas",
+    "dpi": 800,
+    "sensitivity": 0.32,
+    "mouse": "Demo Mouse A",
+    "keyboard": "Demo Keyboard A",
+    "monitor": "Demo Monitor A",
+    "verifiedAt": "2026-07-01",
+    "sourceUrl": "https://example.com/"
+  },
+  {
+    "id": "demo-player-bravo",
+    "player": "Demo Player Bravo",
+    "team": "Demo Team Comet",
+    "role": "Controller",
+    "region": "EMEA",
+    "dpi": 1600,
+    "sensitivity": 0.15,
+    "mouse": "Demo Mouse B",
+    "keyboard": "Demo Keyboard B",
+    "monitor": "Demo Monitor B",
+    "verifiedAt": "2026-07-02",
+    "sourceUrl": "https://example.com/"
+  },
+  {
+    "id": "demo-player-charlie",
+    "player": "Demo Player Charlie",
+    "team": "Demo Team Nova",
+    "role": "Sentinel",
+    "region": "Pacific",
+    "dpi": 400,
+    "sensitivity": 0.68,
+    "mouse": "Demo Mouse C",
+    "keyboard": "Demo Keyboard C",
+    "monitor": "Demo Monitor C",
+    "verifiedAt": "2026-07-03",
+    "sourceUrl": "https://example.com/"
+  }
+]

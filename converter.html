@@ -323,8 +323,17 @@
     href="converter.html"
     class="tool-nav-link active"
     id="navConverter"
+    aria-current="page"
   >
     Sensitivity Converter
+  </a>
+
+  <a
+    href="pro-settings.html"
+    class="tool-nav-link"
+    id="navProSettings"
+  >
+    Pro Settings
   </a>
 </nav>
 
@@ -472,7 +481,8 @@
   id="backLink"
 >
   ← Volver a la calculadora de eDPI
-</a>   
+</a>
+</div>
  </section>
   </main>
 
@@ -561,6 +571,7 @@ const converterTranslations = {
     resultDpiLabel: "DPI utilizado",
     navEdpi: "Calculadora de eDPI",
     navConverter: "Conversor de sensibilidad",
+    navProSettings: "Configuraciones Pro",
     title: "Conversor de sensibilidad",
     description:
       "Convertí tu sensibilidad entre diferentes juegos manteniendo aproximadamente la misma distancia de giro.",
@@ -584,6 +595,7 @@ const converterTranslations = {
     resultDpiLabel: "DPI used",
     navEdpi: "eDPI Calculator",
     navConverter: "Sensitivity Converter",
+    navProSettings: "Pro Settings",
     title: "Sensitivity Converter",
     description:
       "Convert your sensitivity between different games while keeping approximately the same turning distance.",
@@ -626,6 +638,9 @@ function setConverterLanguage(language) {
 
 document.getElementById("navConverter").textContent =
   text.navConverter;
+
+document.getElementById("navProSettings").textContent =
+  text.navProSettings;
 
   document.getElementById("converterDisclaimer").textContent =
   text.disclaimer;

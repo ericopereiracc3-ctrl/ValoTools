@@ -787,10 +787,14 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #4cdcd0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .tool-nav {
-    top: 8px;
-    left: 8px;
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 44px auto 18px;
   }
 
   .tool-nav-link {

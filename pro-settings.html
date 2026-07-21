@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Pro Settings Database | ValoTools</title>
+  <meta name="description" content="Browse and filter Valorant pro player settings by team, region and role, including DPI, sensitivity, calculated eDPI and gaming gear.">
+  <link rel="canonical" href="https://ericopereiracc3-ctrl.github.io/ValoTools/pro-settings.html">
+
+  <meta property="og:site_name" content="ValoTools">
+  <meta property="og:title" content="Valorant Pro Settings Database | ValoTools">
+  <meta property="og:description" content="Browse and filter Valorant pro player sensitivity settings, calculated eDPI and gaming gear.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ericopereiracc3-ctrl.github.io/ValoTools/pro-settings.html">
+  <meta property="og:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valorant Pro Settings Database | ValoTools">
+  <meta name="twitter:description" content="Browse and filter Valorant pro player sensitivity settings, calculated eDPI and gaming gear.">
+  <meta name="twitter:image" content="https://ericopereiracc3-ctrl.github.io/ValoTools/assets/logo/valotools-full.png">
+  <meta name="theme-color" content="#0a0f14">
+
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&amp;family=Rajdhani:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pro-settings.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Valorant Pro Settings Database",
+    "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/pro-settings.html",
+    "description": "A searchable collection of Valorant player sensitivity settings and gaming gear.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ValoTools",
+      "url": "https://ericopereiracc3-ctrl.github.io/ValoTools/"
+    },
+    "mainEntity": {
+      "@type": "Dataset",
+      "name": "ValoTools Valorant Pro Settings",
+      "description": "Demonstration records for a future verified Valorant professional player settings database.",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://ericopereiracc3-ctrl.github.io/ValoTools/data/pro-settings.json"
+      }
+    }
+  }
+  </script>
+</head>
+<body class="pro-settings-body">
+  <div class="language-switcher" aria-label="Language selector">
+    <button type="button" class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+  </div>
+
+  <nav class="tool-nav" aria-label="ValoTools">
+    <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
+    <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
+    <a href="pro-settings.html" class="tool-nav-link active" id="navProSettings" aria-current="page">Pro Settings</a>
+  </nav>
+
+  <main class="pro-settings-page">
+    <header class="pro-hero">
+      <img class="pro-wordmark" src="assets/logo/valotools-wordmark.png" alt="ValoTools">
+      <p class="pro-eyebrow" id="eyebrowText">Competitive loadout database</p>
+      <h1 id="pageTitle">Valorant Pro Settings</h1>
+      <p class="pro-intro" id="pageIntro">
+        Explore player sensitivity, calculated eDPI and gaming gear in one searchable database. Verified professional records will replace the demonstration data below.
+      </p>
+      <p class="demo-notice" id="demoNotice">
+        Demo data only — these fictional players, teams and settings are not real professional records.
+      </p>
+    </header>
+
+    <section class="pro-controls" aria-labelledby="filterTitle">
+      <h2 class="visually-hidden" id="filterTitle">Search and filters</h2>
+      <div class="search-field">
+        <label for="playerSearch" id="searchLabel">Search player or team</label>
+        <input type="search" id="playerSearch" placeholder="Player or team name" autocomplete="off">
+      </div>
+      <div class="filter-field">
+        <label for="teamFilter" id="teamFilterLabel">Team</label>
+        <select id="teamFilter"><option value="">All teams</option></select>
+      </div>
+      <div class="filter-field">
+        <label for="regionFilter" id="regionFilterLabel">Region</label>
+        <select id="regionFilter"><option value="">All regions</option></select>
+      </div>
+      <div class="filter-field">
+        <label for="roleFilter" id="roleFilterLabel">Role</label>
+        <select id="roleFilter"><option value="">All roles</option></select>
+      </div>
+    </section>
+
+    <section class="pro-results" aria-labelledby="resultsTitle">
+      <div class="results-heading">
+        <h2 id="resultsTitle">Player settings</h2>
+        <p id="resultCount" aria-live="polite">Loading records…</p>
+      </div>
+      <div class="settings-grid" id="settingsGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>No players match the current search and filters.</p>
+    </section>
+
+    <aside class="detail-panel" id="detailPanel" aria-labelledby="detailTitle" hidden>
+      <div class="detail-header">
+        <div>
+          <p class="detail-kicker" id="detailKicker">Selected player</p>
+          <h2 id="detailTitle">Player details</h2>
+        </div>
+        <button type="button" class="detail-close" id="detailClose" aria-label="Close player details">×</button>
+      </div>
+      <div class="detail-content" id="detailContent"></div>
+    </aside>
+
+    <section class="pro-about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">How to read these settings</h2>
+      <p id="aboutText">
+        eDPI is calculated automatically by multiplying mouse DPI by in-game Valorant sensitivity. It makes sensitivity easier to compare across different DPI values. Always check the visible source and verification date before relying on a record.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="disclaimerText">
+    ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.
+  </footer>
+
+  <script src="js/pro-settings.js"></script>
+</body>
+</html>
