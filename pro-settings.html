@@ -60,7 +60,7 @@
     <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
   </div>
 
-  <nav class="tool-nav" aria-label="ValoTools">
+  <nav class="tool-nav" aria-label="ValoTools tools">
     <a href="index.html" class="tool-nav-link" id="navEdpi">eDPI Calculator</a>
     <a href="converter.html" class="tool-nav-link" id="navConverter">Sensitivity Converter</a>
     <a href="pro-settings.html" class="tool-nav-link active" id="navProSettings" aria-current="page">Pro Settings</a>
@@ -108,7 +108,23 @@
       <p class="empty-state" id="emptyState" hidden>No players match the current search and filters.</p>
     </section>
 
-    <aside class="detail-panel" id="detailPanel" aria-labelledby="detailTitle" hidden>
+    <section class="pro-about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">How to read these settings</h2>
+      <p id="aboutText">
+        eDPI is calculated automatically by multiplying mouse DPI by in-game Valorant sensitivity. It makes sensitivity easier to compare across different DPI values. Always check the visible source and verification date before relying on a record.
+      </p>
+    </section>
+  </main>
+
+  <div class="detail-overlay" id="detailOverlay" hidden>
+    <section
+      class="detail-panel"
+      id="detailPanel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detailTitle"
+      tabindex="-1"
+    >
       <div class="detail-header">
         <div>
           <p class="detail-kicker" id="detailKicker">Selected player</p>
@@ -117,15 +133,8 @@
         <button type="button" class="detail-close" id="detailClose" aria-label="Close player details">×</button>
       </div>
       <div class="detail-content" id="detailContent"></div>
-    </aside>
-
-    <section class="pro-about" aria-labelledby="aboutTitle">
-      <h2 id="aboutTitle">How to read these settings</h2>
-      <p id="aboutText">
-        eDPI is calculated automatically by multiplying mouse DPI by in-game Valorant sensitivity. It makes sensitivity easier to compare across different DPI values. Always check the visible source and verification date before relying on a record.
-      </p>
     </section>
-  </main>
+  </div>
 
   <footer class="site-footer" id="disclaimerText">
     ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.

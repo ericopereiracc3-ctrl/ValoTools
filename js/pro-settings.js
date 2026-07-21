@@ -104,6 +104,7 @@ const elements = {
   grid: document.getElementById("settingsGrid"),
   count: document.getElementById("resultCount"),
   empty: document.getElementById("emptyState"),
+  detailOverlay: document.getElementById("detailOverlay"),
   detailPanel: document.getElementById("detailPanel"),
   detailTitle: document.getElementById("detailTitle"),
   detailContent: document.getElementById("detailContent"),
@@ -114,6 +115,8 @@ let records = [];
 let currentLanguage = localStorage.getItem(LANGUAGE_KEY) === "es" ? "es" : "en";
 let selectedPlayerId = null;
 let loadFailed = false;
+let modalScrollPosition = 0;
+let lastFocusedElement = null;
 
 function createElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -205,9 +208,16 @@ function createSourceLink(record, label) {
 function createPlayerCard(record) {
   const text = translations[currentLanguage];
   const card = createElement("article", `player-card${selectedPlayerId === record.id ? " selected" : ""}`);
-  card.tabIndex = 0;
   card.dataset.playerId = record.id;
-  card.setAttribute("aria-label", `${text.details}: ${record.player}`);
+
+  const openButton = createElement("button", "card-open");
+  openButton.type = "button";
+  openButton.setAttribute("aria-label", `${text.details}: ${record.player}`);
+  openButton.setAttribute("aria-haspopup", "dialog");
+  openButton.setAttribute("aria-controls", "detailPanel");
+  openButton.setAttribute("aria-expanded", (selectedPlayerId === record.id).toString());
+  openButton.addEventListener("click", () => showDetails(record.id, openButton));
+  card.append(openButton);
 
   card.append(
     createElement("span", "card-demo-label", text.demo),
@@ -234,15 +244,6 @@ function createPlayerCard(record) {
   const footer = createElement("div", "card-footer");
   footer.append(createElement("time", "", `${text.verified}: ${formatDate(record.verifiedAt)}`), createSourceLink(record, text.viewSource));
   card.append(footer);
-
-  const selectCard = () => showDetails(record.id, true);
-  card.addEventListener("click", selectCard);
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      selectCard();
-    }
-  });
 
   return card;
 }
@@ -280,12 +281,14 @@ function addDetailItem(container, label, value, className = "") {
   container.append(item);
 }
 
-function showDetails(playerId, shouldScroll = false) {
+function showDetails(playerId, triggerElement = null) {
   const record = records.find((item) => item.id === playerId);
   if (!record) return;
 
   const text = translations[currentLanguage];
+  const wasOpen = !elements.detailOverlay.hidden;
   selectedPlayerId = playerId;
+  if (triggerElement) lastFocusedElement = triggerElement;
   elements.detailTitle.textContent = record.player;
   elements.detailContent.replaceChildren();
 
@@ -306,20 +309,74 @@ function showDetails(playerId, shouldScroll = false) {
   sourceItem.append(createElement("dt", "", text.source), sourceValue);
   elements.detailContent.append(sourceItem);
 
-  elements.detailPanel.hidden = false;
+  elements.detailOverlay.hidden = false;
   document.querySelectorAll(".player-card").forEach((card) => {
-    card.classList.toggle("selected", card.dataset.playerId === playerId);
+    const isSelected = card.dataset.playerId === playerId;
+    card.classList.toggle("selected", isSelected);
+    card.querySelector(".card-open").setAttribute("aria-expanded", isSelected.toString());
   });
 
-  if (shouldScroll) {
-    elements.detailPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  if (!wasOpen) {
+    modalScrollPosition = window.scrollY;
+    document.body.style.top = `-${modalScrollPosition}px`;
+    document.body.classList.add("modal-open");
+    requestAnimationFrame(() => elements.detailClose.focus({ preventScroll: true }));
   }
 }
 
 function closeDetails() {
+  if (elements.detailOverlay.hidden) return;
+
+  const closingPlayerId = selectedPlayerId;
   selectedPlayerId = null;
-  elements.detailPanel.hidden = true;
-  document.querySelectorAll(".player-card.selected").forEach((card) => card.classList.remove("selected"));
+  elements.detailOverlay.hidden = true;
+  document.body.classList.remove("modal-open");
+  document.body.style.top = "";
+  window.scrollTo(0, modalScrollPosition);
+
+  document.querySelectorAll(".player-card").forEach((card) => {
+    card.classList.remove("selected");
+    card.querySelector(".card-open").setAttribute("aria-expanded", "false");
+  });
+
+  const currentCard = [...document.querySelectorAll(".player-card")]
+    .find((card) => card.dataset.playerId === closingPlayerId);
+  const currentTrigger = currentCard?.querySelector(".card-open");
+  const focusTarget = currentTrigger || (lastFocusedElement?.isConnected ? lastFocusedElement : null);
+  focusTarget?.focus({ preventScroll: true });
+  lastFocusedElement = null;
+}
+
+function handleModalKeydown(event) {
+  if (elements.detailOverlay.hidden) return;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeDetails();
+    return;
+  }
+
+  if (event.key !== "Tab") return;
+
+  const focusable = [...elements.detailPanel.querySelectorAll(
+    "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])"
+  )].filter((element) => !element.hidden);
+
+  if (!focusable.length) {
+    event.preventDefault();
+    elements.detailPanel.focus({ preventScroll: true });
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
 }
 
 function updateStaticText() {
@@ -402,6 +459,10 @@ async function loadRecords() {
 });
 
 elements.detailClose.addEventListener("click", closeDetails);
+elements.detailOverlay.addEventListener("click", (event) => {
+  if (event.target === elements.detailOverlay) closeDetails();
+});
+document.addEventListener("keydown", handleModalKeydown);
 elements.languageButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
