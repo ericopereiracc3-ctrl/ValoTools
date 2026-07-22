@@ -12,6 +12,11 @@
       navConverter: "Sensitivity Converter",
       navProSettings: "Pro Settings",
       navCrosshairs: "Crosshair Lab",
+      footerPrivacy: "Privacy",
+      footerTerms: "Terms",
+      footerLegal: "Legal",
+      footerContact: "Contact",
+      footerNav: "Legal information",
       disclaimer: "ValoTools is not affiliated with Riot Games. Valorant is a trademark of Riot Games.",
       insightLabel: "Useful context",
       previous: "Previous insight",
@@ -24,6 +29,11 @@
       navConverter: "Conversor de sensibilidad",
       navProSettings: "Configuraciones Pro",
       navCrosshairs: "Laboratorio de miras",
+      footerPrivacy: "Privacidad",
+      footerTerms: "Términos",
+      footerLegal: "Aviso legal",
+      footerContact: "Contacto",
+      footerNav: "Información legal",
       disclaimer: "ValoTools no está afiliado con Riot Games. Valorant es una marca registrada de Riot Games.",
       insightLabel: "Contexto útil",
       previous: "Información anterior",
@@ -66,6 +76,21 @@
 
     const disclaimer = document.getElementById("disclaimerText");
     if (disclaimer) disclaimer.textContent = text.disclaimer;
+
+    const footerText = {
+      footerPrivacy: text.footerPrivacy,
+      footerTerms: text.footerTerms,
+      footerLegal: text.footerLegal,
+      footerContact: text.footerContact
+    };
+
+    Object.entries(footerText).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    });
+
+    const footerNav = document.querySelector(".footer-links");
+    if (footerNav) footerNav.setAttribute("aria-label", text.footerNav);
 
     document.querySelectorAll(".lang-btn").forEach((button) => {
       const active = button.dataset.lang === currentLanguage;
